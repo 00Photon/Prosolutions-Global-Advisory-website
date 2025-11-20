@@ -31,7 +31,7 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-20 items-center justify-between">
+        <div className="container flex h-20 items-center justify-between px-4 md:px-0">
           <Link href="/" className="flex items-center space-x-2">
             {/* <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
               <Globe className="h-6 w-6" />
@@ -92,12 +92,13 @@ export function SiteHeader() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col gap-8 mt-8">
                 <Link href="/" className="flex items-center space-x-2" onClick={() => setIsOpen(false)}>
-                  <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">
+                  {/* <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">
                     <Globe className="h-5 w-5" />
                   </div>
-                  <span className="text-lg font-bold text-primary">PROSOLUTIONS</span>
+                  <span className="text-lg font-bold text-primary">PROSOLUTIONS</span> */}
+                  <Image src="/logo.png" alt="ProSolutions Logo" width={120} height={40} />
                 </Link>
-                <nav className="flex flex-col gap-4">
+                <nav className="flex flex-col gap-4 p-4 ">
                   {navigation.map((item) => (
                     <div key={item.name} className="flex flex-col gap-2">
                       {item.children ? (
@@ -150,7 +151,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-6 left-6 z-[100] w-80 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden"
+            className="fixed bottom-6 right-6 z-[100] w-80 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden"
           >
             <div className="p-4 bg-primary text-white flex justify-between items-center">
               <div>

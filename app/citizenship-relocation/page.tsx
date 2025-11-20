@@ -110,7 +110,7 @@ export default function CitizenshipRelocationPage() {
             <div className="flex-1 order-2 md:order-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="/passport-citizenship-documents.jpg"
+                  src="/caribbean-luxury-resort-beach.jpg"
                   alt="Citizenship Programs"
                   className="w-full h-full object-cover"
                 />
@@ -162,7 +162,7 @@ export default function CitizenshipRelocationPage() {
             <div className="flex-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="/family-relocation-new-home.jpg"
+                  src="/modern-city-building.png"
                   alt="Family Relocation"
                   className="w-full h-full object-cover"
                 />
@@ -189,7 +189,7 @@ export default function CitizenshipRelocationPage() {
               },
               {
                 title: "European Union",
-                image: "/european-city-architecture.jpg",
+                image: "/modern-city-building.png",
                 description: "Access to EU markets and lifestyle through Golden Visa programs",
               },
               {

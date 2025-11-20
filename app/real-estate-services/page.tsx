@@ -74,7 +74,7 @@ export default function RealEstateServicesPage() {
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="/luxury-property-exterior.jpg"
+                src="/london-modern-architecture-building.jpg"
                 alt="Real Estate Investment"
                 className="w-full h-full object-cover"
               />
@@ -113,7 +113,7 @@ export default function RealEstateServicesPage() {
             <div className="flex-1 order-2 md:order-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="/luxury-residential-interior.jpg"
+                  src="/modern-city-building.png"
                   alt="Luxury Residential Properties"
                   className="w-full h-full object-cover"
                 />
@@ -165,7 +165,7 @@ export default function RealEstateServicesPage() {
             <div className="flex-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="/commercial-property-skyline.jpg"
+                  src="/modern-city-skyline-skyscraper-blue-hour.jpg"
                   alt="Commercial Properties"
                   className="w-full h-full object-cover"
                 />
@@ -197,7 +197,7 @@ export default function RealEstateServicesPage() {
               },
               {
                 title: "Mediterranean",
-                image: "/mediterranean-coastal-villa.jpg",
+                image: "/caribbean-luxury-resort-beach.jpg",
                 description: "Luxury coastal properties in Portugal, Spain, Greece, and Cyprus",
               },
             ].map((market, index) => (

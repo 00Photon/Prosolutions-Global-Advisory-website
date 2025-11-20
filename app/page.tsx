@@ -20,7 +20,7 @@ export default function Home() {
       <ProcessSection />
       <PortfolioSection />
       <TestimonialsSection />
-      <InsightsSection />
+      {/* <InsightsSection /> */}
       <CTASection />
     </div>
   )

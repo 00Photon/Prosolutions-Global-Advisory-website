@@ -1,21 +1,23 @@
 import Link from "next/link"
 import { Globe, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
+import Image from "next/image"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-slate-900 text-slate-200">
+    <footer className="bg-slate-900 text-slate-200 p-4">
       <div className="container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-white text-primary">
+              {/* <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-white text-primary">
                 <Globe className="h-5 w-5" />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="text-lg font-bold text-white tracking-tight">PROSOLUTIONS</span>
                 <span className="text-[10px] font-medium text-slate-400 tracking-widest">GLOBAL ADVISORY</span>
-              </div>
+              </div> */}
+              <Image src="/logo.png" alt="ProSolutions Logo" width={150} height={40} />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed">
               Your trusted partner for corporate structuring, citizenship by investment, and international real estate solutions.

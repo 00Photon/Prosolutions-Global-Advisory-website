@@ -16,22 +16,45 @@ export const metadata: Metadata = {
   title: "Prosolutions Global Advisory",
   description: "Your Global Partner for Corporate, Citizenship, and Real Estate Solutions",
   generator: "v0.app",
-  icons: {
-    icon: [
+  keywords: [
+    "Prosolutions Global Advisory",
+    "Corporate services",
+    "Citizenship by investment",
+    "Relocation services",
+    "Real estate advisory",
+    "International business consulting",
+  ],
+  openGraph: {
+    title: "Prosolutions Global Advisory",
+    description: "Corporate, citizenship, and real estate strategies tailored for ambitious global clients.",
+    url: "https://www.prosolga.com/",
+    siteName: "Prosolutions Global Advisory",
+    images: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/logo.png",
+        width: 800,
+        height: 418,
+        alt: "Prosolutions Global Advisory",
       },
     ],
-    apple: "/apple-icon.png",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prosolutions Global Advisory",
+    description: "Your partner for corporate, citizenship, and real estate solutions worldwide.",
+    images: ["/logo.png"],
+    site: "@prosolutions",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 }
 

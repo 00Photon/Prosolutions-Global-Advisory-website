@@ -167,7 +167,7 @@ export function SiteHeader() {
             </div>
             <div className="p-3 flex flex-col gap-2">
               <a
-                href="mailto:info@prosolutions.com"
+                href="mailto:info@prosolga.com"
                 className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors group"
               >
                 <div className="h-10 w-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-100 transition-colors">
@@ -175,7 +175,7 @@ export function SiteHeader() {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-medium text-gray-900">Email Us</span>
-                  <span className="text-xs text-gray-500">info@prosolutions.com</span>
+                  <span className="text-xs text-gray-500">info@prosolga.com</span>
                 </div>
               </a>
 

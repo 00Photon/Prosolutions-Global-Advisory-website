@@ -14,9 +14,12 @@ type DecapProxyRequest = {
     file?: { path: string }
   }
   folder?: string
+  files?: { path: string }[]
   path?: string
   field?: string
   id?: string
+  fileData?: string
+  fileName?: string
 }
 
 function githubHeaders() {
@@ -38,7 +41,7 @@ async function getFile(path: string) {
   return response.text()
 }
 
-async function writeFile(path: string, content: string, message: string) {
+async function writeFile(path: string, content: string | Buffer, message: string, isBase64 = false) {
   const getResponse = await fetch(`https://api.github.com/repos/${REPO_FULL_NAME}/contents/${path}`, {
     method: "GET",
     headers: githubHeaders(),
@@ -51,7 +54,13 @@ async function writeFile(path: string, content: string, message: string) {
     headers: githubHeaders(),
     body: JSON.stringify({
       message,
-      content: Buffer.from(content).toString("base64"),
+      content: isBase64
+        ? typeof content === "string"
+          ? content
+          : content.toString("base64")
+        : Buffer.isBuffer(content)
+          ? content.toString("base64")
+          : Buffer.from(content).toString("base64"),
       sha: existing?.sha,
       committer: { name: "Decap CMS", email: "cms@prosolga.com" },
     }),
@@ -110,38 +119,52 @@ export async function POST(request: NextRequest) {
       case "info":
         return NextResponse.json({ repo: REPO_FULL_NAME })
       case "entriesByFolder": {
-        const { folder } = payload as any
-        const response = await fetch(
-          `https://api.github.com/repos/${REPO_FULL_NAME}/contents/${folder}`,
-          { headers: githubHeaders() },
-        )
-        const files = await response.json()
+        const folder = payload.folder
+        if (!folder) throw new Error("Missing folder")
+        const files = await listFolder(folder)
         const entries = await Promise.all(
-          files.map(async (file: any) => ({
+          files.filter((file: any) => file.type === "file").map(async (file: any) => ({
             file: { path: file.path },
             data: await getFile(file.path),
           })),
         )
         return NextResponse.json(entries)
       }
-      case "entry": {
-        const path = payload.entry?.path || payload.entry?.file?.path
+      case "entriesByFiles": {
+        const files = payload.files || []
+        const entries = await Promise.all(
+          files.map(async (file) => ({
+            file,
+            data: await getFile(file.path),
+          })),
+        )
+        return NextResponse.json(entries)
+      }
+      case "entry":
+      case "getEntry": {
+        const path = payload.entry?.path || payload.entry?.file?.path || payload.path
         if (!path) throw new Error("Missing entry path")
         const data = await getFile(path)
         return NextResponse.json({ file: { path }, data })
       }
-      case "persistEntry": {
+      case "persistEntry":
+      case "persistUnpublishedEntry": {
         const path = payload.entry?.path || payload.entry?.file?.path
         if (!path || !payload.entry?.raw) throw new Error("Missing entry data")
         await writeFile(path, payload.entry.raw, `Update ${path} via Decap CMS`)
         return NextResponse.json({ ok: true })
       }
-      case "deleteEntry": {
+      case "deleteEntry":
+      case "deleteUnpublishedEntry": {
         const path = payload.entry?.path || payload.entry?.file?.path
         if (!path) throw new Error("Missing entry path")
         await deleteFile(path, `Delete ${path} via Decap CMS`)
         return NextResponse.json({ ok: true })
       }
+      case "unpublishedEntries":
+        return NextResponse.json([])
+      case "unpublishedEntry":
+        return NextResponse.json(null)
       case "getMedia": {
         const response = await fetch(
           `https://api.github.com/repos/${REPO_FULL_NAME}/contents/public/uploads`,
@@ -157,10 +180,25 @@ export async function POST(request: NextRequest) {
           })),
         )
       }
+      case "getMediaFile": {
+        const path = payload.path
+        if (!path) throw new Error("Missing media path")
+        const data = await getFile(path)
+        return NextResponse.json({
+          id: path,
+          name: path.split("/").pop(),
+          path,
+          data: Buffer.from(data).toString("base64"),
+          url: `https://raw.githubusercontent.com/${REPO_FULL_NAME}/main/${path}`,
+        })
+      }
       case "persistMedia": {
         const { path, fileData, fileName } = payload as any
-        const targetPath = path || `public/uploads/${fileName}`
-        await writeFile(targetPath, fileData, `Upload ${targetPath} via Decap CMS`)
+        const targetPath = path || (fileName ? `public/uploads/${fileName}` : undefined)
+        if (!targetPath || !fileData) throw new Error("Missing media data")
+        const cleanData =
+          typeof fileData === "string" ? fileData.replace(/^data:.*;base64,/, "") : Buffer.from(fileData).toString("base64")
+        await writeFile(targetPath, cleanData, `Upload ${targetPath} via Decap CMS`, true)
         return NextResponse.json({ path: targetPath, url: `/${targetPath}` })
       }
       case "deleteMedia": {
@@ -176,4 +214,13 @@ export async function POST(request: NextRequest) {
     console.error(error)
     return NextResponse.json({ error: "Proxy request failed" }, { status: 500 })
   }
+}
+async function listFolder(path: string) {
+  const response = await fetch(`https://api.github.com/repos/${REPO_FULL_NAME}/contents/${path}`, {
+    headers: githubHeaders(),
+  })
+  if (!response.ok) {
+    throw new Error(`Failed to list ${path}`)
+  }
+  return response.json()
 }

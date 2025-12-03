@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { PageHeader } from "@/components/page-header"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -73,10 +74,13 @@ export default function RealEstateServicesPage() {
               </p>
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
-              <img
+              <Image
                 src="/london-modern-architecture-building.jpg"
                 alt="Real Estate Investment"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
               />
             </div>
           </div>
@@ -112,10 +116,13 @@ export default function RealEstateServicesPage() {
           <div className="flex flex-col md:flex-row items-center gap-12 mb-24">
             <div className="flex-1 order-2 md:order-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
-                <img
+                <Image
                   src="/modern-city-building.png"
                   alt="Luxury Residential Properties"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -164,10 +171,13 @@ export default function RealEstateServicesPage() {
             </div>
             <div className="flex-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
-                <img
+                <Image
                   src="/modern-city-skyline-skyscraper-blue-hour.jpg"
                   alt="Commercial Properties"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -210,10 +220,13 @@ export default function RealEstateServicesPage() {
               >
                 <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow">
                   <div className="relative h-48">
-                    <img
+                    <Image
                       src={market.image || "/placeholder.svg"}
                       alt={market.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
                     />
                   </div>
                   <CardHeader>

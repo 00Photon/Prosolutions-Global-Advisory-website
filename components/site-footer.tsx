@@ -20,7 +20,8 @@ export function SiteFooter() {
               <Image src="/logo.png" alt="ProSolutions Logo" width={150} height={40} />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Your trusted partner for corporate structuring, citizenship by investment, and international real estate solutions.
+              Trusted partner for corporate structuring, citizenship by investment, residency by investment, international
+              real estate, and employment migration solutions.
             </p>
           </div>
 
@@ -37,13 +38,19 @@ export function SiteFooter() {
               <li>
                 <Link href="/citizenship-relocation" className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group">
                   <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-secondary" />
-                  Citizenship & Relocation
+                  Citizenship & Residency by Investment
                 </Link>
               </li>
               <li>
                 <Link href="/real-estate-services" className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group">
                   <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-secondary" />
-                  Real Estate Advisory
+                  International Real Estate Advisory
+                </Link>
+              </li>
+              <li>
+                <Link href="/employment-migration" className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-secondary" />
+                  Employment Migration
                 </Link>
               </li>
             </ul>
@@ -52,10 +59,36 @@ export function SiteFooter() {
           {/* Contact */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider">Contact</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-sm text-slate-400">
-                <MapPin className="h-5 w-5 text-secondary shrink-0" />
-                <span>Global Headquarters<br />Financial District, Dubai, UAE</span>
+            <ul className="space-y-4">
+              <li className="text-sm text-slate-400 space-y-1">
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-secondary shrink-0" />
+                  <div>
+                    <p className="font-semibold text-white">Lagos Advisory Suite</p>
+                    <p>5th Floor, Landmark Towers, Water Corporation Rd, Victoria Island, Lagos</p>
+                  </div>
+                </div>
+                <p className="pl-8 text-xs text-slate-500">Contact: Althea Adebayo · +234 808 555 0190</p>
+              </li>
+              <li className="text-sm text-slate-400 space-y-1">
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-secondary shrink-0" />
+                  <div>
+                    <p className="font-semibold text-white">Abuja Liaison Office</p>
+                    <p>3rd Floor, 41 Gana Street, Maitama District, Abuja</p>
+                  </div>
+                </div>
+                <p className="pl-8 text-xs text-slate-500">Contact: Althea Adebayo · +234 809 555 3771</p>
+              </li>
+              <li className="text-sm text-slate-400 space-y-1">
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-secondary shrink-0" />
+                  <div>
+                    <p className="font-semibold text-white">Johannesburg Private Office</p>
+                    <p>Level 8, 7 Fredman Drive, Sandton, Johannesburg, South Africa</p>
+                  </div>
+                </div>
+                <p className="pl-8 text-xs text-slate-500">Contact: Althea Jacobs · +27 11 555 9021</p>
               </li>
               <li className="flex items-center gap-3 text-sm text-slate-400">
                 <Phone className="h-5 w-5 text-secondary shrink-0" />
@@ -63,7 +96,7 @@ export function SiteFooter() {
               </li>
               <li className="flex items-center gap-3 text-sm text-slate-400">
                 <Mail className="h-5 w-5 text-secondary shrink-0" />
-                <span>contact@prosolutions.com</span>
+                <span>contact@prosolga.com</span>
               </li>
             </ul>
           </div>

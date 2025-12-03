@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "Prosolutions Global Advisory",
     "Corporate services",
     "Citizenship by investment",
-    "Relocation services",
+    "Residency by investment",
     "Real estate advisory",
     "International business consulting",
   ],

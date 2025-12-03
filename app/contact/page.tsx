@@ -62,8 +62,9 @@ export default function ContactPage() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="corporate">Corporate Services</SelectItem>
-                      <SelectItem value="citizenship">Citizenship & Relocation</SelectItem>
-                      <SelectItem value="real-estate">Real Estate Advisory</SelectItem>
+                      <SelectItem value="citizenship">Citizenship & Residency</SelectItem>
+                      <SelectItem value="real-estate">International Real Estate Advisory</SelectItem>
+                      <SelectItem value="employment">Employment Migration</SelectItem>
                       <SelectItem value="other">Other Inquiry</SelectItem>
                     </SelectContent>
                   </Select>
@@ -121,7 +122,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-primary">Email</h4>
-                      <p className="text-muted-foreground">contact@prosolutions.com</p>
+                      <p className="text-muted-foreground">contact@prosolga.com</p>
                     </div>
                   </div>
 

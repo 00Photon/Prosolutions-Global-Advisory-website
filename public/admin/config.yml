@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/prosolutions-global-advisory-website
+  branch: main
+  auth_endpoint: /api/decap/auth
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: "insights"
+    label: "Insights"
+    folder: "content/insights"
+    create: true
+    slug: "{{slug}}"
+    extension: "mdx"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["Citizenship", "Corporate", "Investment"] }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Cover Image", name: "coverImage", widget: "image", choose_url: true }
+      - { label: "Body", name: "body", widget: "markdown" }

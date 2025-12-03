@@ -2,9 +2,8 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, Globe, ChevronDown, Mail, Phone, MessageCircle, X } from "lucide-react"
+import { Menu, Globe, Mail, Phone, MessageCircle, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
@@ -15,16 +14,9 @@ export function SiteHeader() {
 
   const navigation = [
     { name: "Home", href: "/" },
-    {
-      name: "Services",
-      href: "#services",
-      children: [
-        { name: "Corporate Services", href: "/corporate-services" },
-        { name: "Citizenship & Relocation", href: "/citizenship-relocation" },
-        { name: "Real Estate Advisory", href: "/real-estate-services" },
-      ],
-    },
     { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Insights", href: "/insights" },
     { name: "Contact", href: "/contact" },
   ]
 
@@ -46,33 +38,15 @@ export function SiteHeader() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navigation.map((item) =>
-              item.children ? (
-                <DropdownMenu key={item.name}>
-                  <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
-                    {item.name}
-                    <ChevronDown className="h-4 w-4" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="center" className="w-56">
-                    {item.children.map((child) => (
-                      <DropdownMenuItem key={child.name} asChild>
-                        <Link href={child.href} className="cursor-pointer">
-                          {child.name}
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ),
-            )}
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
             <Button
               onClick={() => setShowContactModal(true)}
               className="bg-primary hover:bg-primary/90 text-white rounded-full px-6"
@@ -100,33 +74,14 @@ export function SiteHeader() {
                 </Link>
                 <nav className="flex flex-col gap-4 p-4 ">
                   {navigation.map((item) => (
-                    <div key={item.name} className="flex flex-col gap-2">
-                      {item.children ? (
-                        <>
-                          <div className="text-sm font-medium text-muted-foreground">{item.name}</div>
-                          <div className="pl-4 flex flex-col gap-3 border-l">
-                            {item.children.map((child) => (
-                              <Link
-                                key={child.name}
-                                href={child.href}
-                                className="text-sm text-foreground hover:text-primary"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {child.name}
-                              </Link>
-                            ))}
-                          </div>
-                        </>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          className="text-sm font-medium text-foreground hover:text-primary"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
-                      )}
-                    </div>
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="text-sm font-medium text-foreground hover:text-primary"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
                   ))}
                   <Button
                     onClick={() => {
@@ -178,7 +133,6 @@ export function SiteHeader() {
                   <span className="text-xs text-gray-500">info@prosolga.com</span>
                 </div>
               </a>
-
               <a
                 href="https://wa.me/1234567890"
                 target="_blank"

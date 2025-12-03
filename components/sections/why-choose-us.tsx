@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { ShieldCheck, Layers, Lock, Globe } from "lucide-react"
 
@@ -50,10 +51,13 @@ export function WhyChooseUsSection() {
               advice.
             </p>
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
-              <img
+              <Image
                 src="/business-meeting-handshake-corporate-office.jpg"
                 alt="Professional Consultation"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
               />
               <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
             </div>

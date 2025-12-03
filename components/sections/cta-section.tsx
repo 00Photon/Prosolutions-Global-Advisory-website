@@ -21,9 +21,10 @@ export function CTASection() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto space-y-8"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white">Ready to Secure Your Global Future?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white">Ready to Start Your Global Journey?</h2>
           <p className="text-xl text-slate-300 leading-relaxed">
-            Contact our specialist advisors today to schedule a confidential, no-obligation consultation.
+            Let&apos;s discuss how Prosolutions Global Advisory can help you achieve your international growth, mobility, and
+            lifestyle goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button
@@ -39,7 +40,7 @@ export function CTASection() {
               className="border-white/20 text-white hover:bg-white/10 text-lg px-8 h-14 rounded-full bg-transparent"
               asChild
             >
-              <Link href="/corporate-services">View Services</Link>
+              <Link href="/services">View Services</Link>
             </Button>
           </div>
         </motion.div>

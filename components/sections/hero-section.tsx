@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 const slides = [
   {
     id: 1,
-    image: "/modern-city-skyline-skyscraper-blue-hour.jpg",
+    image: "/pex.jpg",
     title: "Your Global Future, Secured",
     subtitle:
       "Prosolutions Global Advisory is a premier, independent provider of specialised services for international corporations, private investors, and globally mobile individuals.",
@@ -18,21 +19,30 @@ const slides = [
   },
   {
     id: 2,
-    image: "/business-meeting-handshake-corporate-office.jpg",
+    image: "/pix.jpg",
     title: "Strategic Corporate Solutions",
     subtitle:
       "Comprehensive company formation, management, and advisory services tailored to your international business needs.",
     cta: "Explore Services",
-    link: "/corporate-services",
+    link: "/services",
   },
   {
     id: 3,
-    image: "/dubai-skyline-office.jpg",
-    title: "Citizenship by Investment",
+    image: "/map.jpg",
+    title: "Citizenship & Mobility",
     subtitle:
       "Unlock global mobility and secure your family's future with our expert guidance on premier citizenship and residency programs.",
     cta: "Learn More",
-    link: "/citizenship-relocation",
+    link: "/services",
+  },
+  {
+    id: 4,
+    image: "/estate.jpg",
+    title: "Real Estate Investment Advisory",
+    subtitle:
+      "Secure prime assets across emerging African and global cities with our on-the-ground research and transaction support.",
+    cta: "Get Started",
+    link: "/contact",
   },
 ]
 
@@ -62,11 +72,16 @@ export function HeroSection() {
           className="absolute inset-0 z-0"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/30 z-10" />
-          <img
-            src={slides[currentSlide].image || "/placeholder.svg"}
-            alt="Hero Background"
-            className="w-full h-full object-cover"
-          />
+          <div className="relative h-full w-full">
+            <Image
+              src={slides[currentSlide].image || "/placeholder.svg"}
+              alt={slides[currentSlide].title}
+              fill
+              priority={currentSlide === 0}
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+          </div>
         </motion.div>
       </AnimatePresence>
 

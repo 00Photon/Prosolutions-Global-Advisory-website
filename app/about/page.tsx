@@ -1,9 +1,10 @@
 "use client"
 
+import Image from "next/image"
 import { PageHeader } from "@/components/page-header"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Target, Users, Globe2, Award, CheckCircle2, TrendingUp } from "lucide-react"
+import { Target, Globe2, Award, CheckCircle2, TrendingUp } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
@@ -11,26 +12,32 @@ const values = [
   {
     title: "Client-Centric Excellence",
     description:
-      "Every decision we make is guided by what's best for our clients. We provide tailored solutions that align with your unique goals and circumstances.",
+      "Every recommendation aligns with your stated ambitions. We tailor governance, mobility, and investment roadmaps to the people behind the mandates.",
     icon: Target,
+  },
+  {
+    title: "Integrity & Confidentiality",
+    description:
+      "Absolute discretion underpins our work. We safeguard data, relationships, and decisions with the highest professional ethics.",
+    icon: Award,
+  },
+  {
+    title: "Speed, Competence & Innovation",
+    description:
+      "Dedicated pods execute quickly with the latest tools, ensuring your organisation benefits from fresh insight and decisive action.",
+    icon: TrendingUp,
+  },
+  {
+    title: "Full Compliance",
+    description:
+      "Our teams coordinate with leading legal and tax partners to keep every structure, filing, and visa fully compliant.",
+    icon: CheckCircle2,
   },
   {
     title: "Global Expertise",
     description:
-      "With deep knowledge of international markets and regulations, we navigate complex cross-border challenges with confidence and precision.",
+      "Deep knowledge of African, Gulf, European, and Caribbean jurisdictions gives you a single advisor with true worldwide reach.",
     icon: Globe2,
-  },
-  {
-    title: "Integrity & Discretion",
-    description:
-      "We uphold the highest standards of professional ethics and maintain absolute confidentiality in all client relationships.",
-    icon: Award,
-  },
-  {
-    title: "Long-Term Partnerships",
-    description:
-      "We're not just advisors; we're partners in your success. We build lasting relationships based on trust, transparency, and results.",
-    icon: Users,
   },
 ]
 
@@ -46,18 +53,21 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen">
       <PageHeader
         title="About Prosolutions Global Advisory"
-        subtitle="Your Trusted Partner in Global Business Solutions"
+        subtitle="Your Trusted Partner in Global Migration, Business & International Real Estate Solutions"
         backgroundImage="/modern-city-skyline-skyscraper-blue-hour.jpg"
       />
 
       <section className="py-16 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
+          <p className="text-secondary font-semibold tracking-[0.25em] uppercase mb-8 text-sm text-center md:text-left">
+            Your Trusted Partner in Global Migration, Business & International Real Estate Solutions
+          </p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-primary">Who We Are</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Prosolutions Global Advisory is a premier international advisory firm specializing in corporate
-                services, citizenship and relocation programs, and global real estate investment. Founded on the
+                services, citizenship and residency programs, and global real estate investment. Founded on the
                 principles of excellence, integrity, and client-focused service, we help individuals and businesses
                 navigate the complexities of international expansion and wealth management.
               </p>
@@ -73,7 +83,14 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl">
-              <img src="/professional-team-office.jpg" alt="Our Team" className="w-full h-full object-cover" />
+              <Image
+                src="/professional-team-office.jpg"
+                alt="Our Team"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -136,14 +153,22 @@ export default function AboutPage() {
           <div className="flex flex-col md:flex-row items-center gap-12 mb-24">
             <div className="flex-1 order-2 md:order-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
-                <img src="/global-business-network.jpg" alt="Our Mission" className="w-full h-full object-cover" />
+                <Image
+                  src="/global-business-network.jpg"
+                  alt="Our Mission"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
               </div>
             </div>
             <div className="flex-1 space-y-6 order-1 md:order-2">
               <h3 className="text-2xl font-bold text-primary">Our Mission</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                To empower individuals and businesses to achieve their global ambitions through expert advisory
-                services, innovative solutions, and unwavering commitment to excellence.
+                To empower global citizens, business leaders, and wealth stewards to protect their assets, preserve
+                their lifestyle ambitions, and unlock new markets through expert advisory services and innovative
+                solutions.
               </p>
               <ul className="space-y-3">
                 {[
@@ -165,8 +190,9 @@ export default function AboutPage() {
             <div className="flex-1 space-y-6">
               <h3 className="text-2xl font-bold text-primary">Our Vision</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                To be the world's most trusted advisor for international business, citizenship, and investment
-                solutions, recognized for our expertise, integrity, and client success stories.
+                To be the most trusted global partner of choice for alternative residency and citizenship, international
+                real estate investment, global business structuring, and wealth planning solutions, recognised for our
+                expertise, integrity, and client success stories.
               </p>
               <ul className="space-y-3">
                 {[
@@ -184,7 +210,14 @@ export default function AboutPage() {
             </div>
             <div className="flex-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
-                <img src="/future-vision-technology.jpg" alt="Our Vision" className="w-full h-full object-cover" />
+                <Image
+                  src="/future-vision-technology.jpg"
+                  alt="Our Vision"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>

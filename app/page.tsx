@@ -8,8 +8,11 @@ import { PortfolioSection } from "@/components/sections/portfolio-section"
 import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { InsightsSection } from "@/components/sections/insights-section"
 import { CTASection } from "@/components/sections/cta-section"
+import { getAllInsights } from "@/lib/insights"
 
-export default function Home() {
+export default async function Home() {
+  const insights = await getAllInsights(3)
+
   return (
     <div className="flex flex-col min-h-screen">
       <HeroSection />
@@ -20,7 +23,7 @@ export default function Home() {
       <ProcessSection />
       <PortfolioSection />
       <TestimonialsSection />
-      {/* <InsightsSection /> */}
+      <InsightsSection insights={insights} />
       <CTASection />
     </div>
   )

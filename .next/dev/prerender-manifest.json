@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "77f7c81042f7b948366bcc09b5fab915",
-    "previewModeSigningKey": "6d42f2765522dc397ed6149c21748d11d22dd72fcdebc76a144b9d0322b6ad2c",
-    "previewModeEncryptionKey": "5d4ed81ea0cbf66c8688c8f10a7e61c958cb7658de6ffd3e42779eaadbce1d17"
-  }
-}
+{"version":4,"routes":{"/insights/global-mobility-trends-2025":{},"/insights/uae-corporate-tax-update":{},"/insights/prime-real-estate-markets":{},"/case-studies/corporate-hq-relocation":{},"/case-studies/citizenship-by-investment-family-office":{},"/case-studies/commercial-asset-acquisition":{},"/case-studies/family-office-structuring":{}},"dynamicRoutes":{"/insights/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/insights/[slug]","routeRegex":"^\\/insights\\/([^/]+?)(?:\\/)?$","allowHeader":[]},"/case-studies/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/case-studies/[slug]","routeRegex":"^\\/case\\-studies\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"27a30c786ad69fab9d0060dc46f8ea17","previewModeSigningKey":"65620cf7a6f12391acf25502da05634910b75bb0743486d578a4cb52c7c9fbde","previewModeEncryptionKey":"8af095507e803034e72343162bc36dbb10fce3cf82032807fcaf5409afbaf2bb"}}

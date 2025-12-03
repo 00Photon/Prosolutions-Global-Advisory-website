@@ -12,6 +12,7 @@ type DecapProxyRequest = {
     path?: string
     raw?: string
     file?: { path: string }
+    collection?: string
   }
   folder?: string
   files?: { path: string }[]

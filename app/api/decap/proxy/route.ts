@@ -13,6 +13,7 @@ type DecapProxyRequest = {
     raw?: string
     file?: { path: string }
     collection?: string
+    slug?: string
   }
   folder?: string
   files?: { path: string }[]
@@ -120,7 +121,7 @@ export async function POST(request: NextRequest) {
       case "info":
         return NextResponse.json({ repo: REPO_FULL_NAME })
       case "entriesByFolder": {
-        const folder = payload.folder
+        const folder = resolveFolder(payload)
         if (!folder) throw new Error("Missing folder")
         const files = await listFolder(folder)
         const entries = await Promise.all(
@@ -150,14 +151,20 @@ export async function POST(request: NextRequest) {
       }
       case "persistEntry":
       case "persistUnpublishedEntry": {
-        const path = payload.entry?.path || payload.entry?.file?.path
+        const path =
+          payload.entry?.path ||
+          payload.entry?.file?.path ||
+          (payload.entry?.collection === "insights" && payload.entry?.slug ? `content/insights/${payload.entry.slug}.mdx` : undefined)
         if (!path || !payload.entry?.raw) throw new Error("Missing entry data")
         await writeFile(path, payload.entry.raw, `Update ${path} via Decap CMS`)
         return NextResponse.json({ ok: true })
       }
       case "deleteEntry":
       case "deleteUnpublishedEntry": {
-        const path = payload.entry?.path || payload.entry?.file?.path
+        const path =
+          payload.entry?.path ||
+          payload.entry?.file?.path ||
+          (payload.entry?.collection === "insights" && payload.entry?.slug ? `content/insights/${payload.entry.slug}.mdx` : undefined)
         if (!path) throw new Error("Missing entry path")
         await deleteFile(path, `Delete ${path} via Decap CMS`)
         return NextResponse.json({ ok: true })
@@ -226,4 +233,13 @@ async function listFolder(path: string) {
     throw new Error(`Failed to list ${path}`)
   }
   return response.json()
+}
+
+function resolveFolder(payload: DecapProxyRequest) {
+  if (payload.folder) return payload.folder.replace(/^\/+/, "")
+  const collection = payload.collection || payload.entry?.collection
+  if (collection === "insights") {
+    return "content/insights"
+  }
+  return undefined
 }

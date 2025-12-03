@@ -11,7 +11,7 @@ public_folder: /uploads
 collections:
   - name: "insights"
     label: "Insights"
-    folder: "/content/insights"
+    folder: "content/insights"
     path: "{{slug}}.mdx"
     create: true
     fields:

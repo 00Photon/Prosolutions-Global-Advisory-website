@@ -166,18 +166,16 @@ export async function POST(request: NextRequest) {
       case "unpublishedEntry":
         return NextResponse.json(null)
       case "getMedia": {
-        const response = await fetch(
-          `https://api.github.com/repos/${REPO_FULL_NAME}/contents/public/uploads`,
-          { headers: githubHeaders() },
-        )
-        const files = await response.json()
+        const files = await listFolder("public/uploads")
         return NextResponse.json(
-          files.map((file: any) => ({
-            id: file.sha,
-            name: file.name,
-            url: file.download_url,
-            path: file.path,
-          })),
+          files
+            .filter((file: any) => file.type === "file" && file.name !== ".gitkeep")
+            .map((file: any) => ({
+              id: file.sha,
+              name: file.name,
+              url: file.download_url,
+              path: file.path,
+            })),
         )
       }
       case "getMediaFile": {
@@ -189,6 +187,7 @@ export async function POST(request: NextRequest) {
           name: path.split("/").pop(),
           path,
           data: Buffer.from(data).toString("base64"),
+          encoding: "base64",
           url: `https://raw.githubusercontent.com/${REPO_FULL_NAME}/main/${path}`,
         })
       }

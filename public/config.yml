@@ -1,8 +1,9 @@
 backend:
-  name: github
-  repo: 00Photon/Prosolutions-Global-Advisory-website
+  name: proxy
+  proxy_url: /api/decap/proxy
   branch: main
-  auth_endpoint: /api/decap/auth
+
+site_url: https://prosolutions-global-advisory-websit-beta.vercel.app
 
 media_folder: public/uploads
 public_folder: /uploads

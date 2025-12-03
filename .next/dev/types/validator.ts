@@ -191,19 +191,10 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../../app/api/decap/auth/route.ts
+// Validate ../../../app/api/decap/proxy/route.ts
 {
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/decap/auth">> = Specific
-  const handler = {} as typeof import("../../../app/api/decap/auth/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../../app/api/decap/callback/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/decap/callback">> = Specific
-  const handler = {} as typeof import("../../../app/api/decap/callback/route.js")
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/decap/proxy">> = Specific
+  const handler = {} as typeof import("../../../app/api/decap/proxy/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

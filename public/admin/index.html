@@ -7,19 +7,10 @@
     <link rel="stylesheet" href="https://unpkg.com/decap-cms@3.1.8/dist/decap-cms.css" />
   </head>
   <body>
+    <script src="https://unpkg.com/decap-cms@3.1.8/dist/decap-cms.js"></script>
     <script>
+      window.CMS_MANUAL_INIT = true
       ;(function () {
-        const loadCMS = () => {
-          const script = document.createElement("script")
-          script.src = "https://unpkg.com/decap-cms@3.1.8/dist/decap-cms.js"
-          script.onload = () => {
-            if (window.CMS?.init) {
-              window.CMS.init()
-            }
-          }
-          document.body.appendChild(script)
-        }
-
         let secret = sessionStorage.getItem("cmsSecret")
         while (!secret) {
           const input = window.prompt("Enter CMS access password")
@@ -43,7 +34,15 @@
           return originalFetch(input, init)
         }
 
-        loadCMS()
+        function initCMS() {
+          if (window.CMS && window.CMS.init) {
+            window.CMS.init()
+          } else {
+            setTimeout(initCMS, 50)
+          }
+        }
+
+        initCMS()
       })()
     </script>
   </body>

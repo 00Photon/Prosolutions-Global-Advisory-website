@@ -6,13 +6,17 @@ const REPO_FULL_NAME = process.env.GITHUB_REPO ?? "00Photon/Prosolutions-Global-
 
 type DecapProxyRequest = {
   action: string
-  collection: string
+  collection?: string
   slug?: string
   entry?: {
-    path: string
-    raw: string
-    file: { path: string }
+    path?: string
+    raw?: string
+    file?: { path: string }
   }
+  folder?: string
+  path?: string
+  field?: string
+  id?: string
 }
 
 function githubHeaders() {
@@ -135,6 +139,33 @@ export async function POST(request: NextRequest) {
       case "deleteEntry": {
         const path = payload.entry?.path || payload.entry?.file?.path
         if (!path) throw new Error("Missing entry path")
+        await deleteFile(path, `Delete ${path} via Decap CMS`)
+        return NextResponse.json({ ok: true })
+      }
+      case "getMedia": {
+        const response = await fetch(
+          `https://api.github.com/repos/${REPO_FULL_NAME}/contents/public/uploads`,
+          { headers: githubHeaders() },
+        )
+        const files = await response.json()
+        return NextResponse.json(
+          files.map((file: any) => ({
+            id: file.sha,
+            name: file.name,
+            url: file.download_url,
+            path: file.path,
+          })),
+        )
+      }
+      case "persistMedia": {
+        const { path, fileData, fileName } = payload as any
+        const targetPath = path || `public/uploads/${fileName}`
+        await writeFile(targetPath, fileData, `Upload ${targetPath} via Decap CMS`)
+        return NextResponse.json({ path: targetPath, url: `/${targetPath}` })
+      }
+      case "deleteMedia": {
+        const { path } = payload
+        if (!path) throw new Error("Missing media path")
         await deleteFile(path, `Delete ${path} via Decap CMS`)
         return NextResponse.json({ ok: true })
       }

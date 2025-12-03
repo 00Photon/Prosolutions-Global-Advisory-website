@@ -210,8 +210,11 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: `Unsupported action: ${payload.action}` }, { status: 400 })
     }
   } catch (error) {
-    console.error(error)
-    return NextResponse.json({ error: "Proxy request failed" }, { status: 500 })
+    console.error("[Decap Proxy Error]", error)
+    return NextResponse.json(
+      { error: "Proxy request failed", message: error instanceof Error ? error.message : String(error) },
+      { status: 500 },
+    )
   }
 }
 async function listFolder(path: string) {

@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/insights/global-mobility-trends-2025":{},"/insights/uae-corporate-tax-update":{},"/insights/prime-real-estate-markets":{},"/case-studies/corporate-hq-relocation":{},"/case-studies/citizenship-by-investment-family-office":{},"/case-studies/commercial-asset-acquisition":{},"/case-studies/family-office-structuring":{}},"dynamicRoutes":{"/insights/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/insights/[slug]","routeRegex":"^\\/insights\\/([^/]+?)(?:\\/)?$","allowHeader":[]},"/case-studies/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/case-studies/[slug]","routeRegex":"^\\/case\\-studies\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"27a30c786ad69fab9d0060dc46f8ea17","previewModeSigningKey":"65620cf7a6f12391acf25502da05634910b75bb0743486d578a4cb52c7c9fbde","previewModeEncryptionKey":"8af095507e803034e72343162bc36dbb10fce3cf82032807fcaf5409afbaf2bb"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "5ecac44620e2b16eb66599c5e04043b9",
+    "previewModeSigningKey": "dbaea010d2e98a471e5bf1ebc9a4c317e83b616a7fb49ce48d0efd043824235d",
+    "previewModeEncryptionKey": "c9d1d3631118b8d00dce58439605f7188c7c992d2cdde4b392437ebd32827082"
+  }
+}

@@ -56,6 +56,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../app/admin/submissions/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/admin/submissions">> = Specific
+  const handler = {} as typeof import("../../../app/admin/submissions/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../app/case-studies/[slug]/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/case-studies/[slug]">> = Specific
@@ -195,6 +204,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/decap/proxy">> = Specific
   const handler = {} as typeof import("../../../app/api/decap/proxy/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/api/submit-contact/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/submit-contact">> = Specific
+  const handler = {} as typeof import("../../../app/api/submit-contact/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

@@ -9,8 +9,68 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import { motion } from "framer-motion"
+import { useState } from 'react'
+import { toast } from 'sonner'
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: '',
+  })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value })
+  }
+
+  const handleSelect = (value: string) => {
+    setFormData({ ...formData, service: value })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      const res = await fetch('/api/submit-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+        }),
+      })
+
+      const result = await res.json()
+
+      if (result.success) {
+        toast.success(result.message || 'Message sent successfully!')
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: '',
+        })
+      } else {
+        toast.error('Something went wrong')
+      }
+    } catch (err) {
+      toast.error('Failed to send message')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
   return (
     <div className="flex flex-col min-h-screen">
       <PageHeader
@@ -32,52 +92,75 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="first-name">First name</Label>
-                    <Input id="first-name" placeholder="Enter your first name" />
+                   <Input
+                    id="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="Enter your first name"
+                    required
+                  />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="last-name">Last name</Label>
-                    <Input id="last-name" placeholder="Enter your last name" />
+                  <Input
+                      id="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      placeholder="Enter your last name"
+                      required
+                    />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="Enter your email" />
+                <Input id="email" type="email" value={formData.email} onChange={handleChange} required />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone number</Label>
-                  <Input id="phone" type="tel" placeholder="Enter your phone number" />
+                <Input id="phone" type="tel" value={formData.phone} onChange={handleChange} />
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="service">Service Interest</Label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a service" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="corporate">Corporate Services</SelectItem>
-                      <SelectItem value="citizenship">Citizenship & Residency</SelectItem>
-                      <SelectItem value="real-estate">International Real Estate Advisory</SelectItem>
-                      <SelectItem value="employment">Employment Migration</SelectItem>
-                      <SelectItem value="other">Other Inquiry</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+             <div className="space-y-2">
+              <Label htmlFor="service">Service Interest</Label>
+              <Select onValueChange={handleSelect} value={formData.service}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select a service" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="corporate">Corporate Services</SelectItem>
+                  <SelectItem value="citizenship">Citizenship & Residency</SelectItem>
+                  <SelectItem value="real-estate">International Real Estate Advisory</SelectItem>
+                  <SelectItem value="employment">Employment Migration</SelectItem>
+                  <SelectItem value="other">Other Inquiry</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" placeholder="How can we help you?" className="min-h-[150px]" />
-                </div>
+               <div className="space-y-2">
+                <Label htmlFor="message">Message</Label>
+                <Textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="How can we help you?"
+                  className="min-h-[150px]"
+                  required
+                />
+              </div>
 
-                <Button type="submit" className="w-full bg-secondary hover:bg-secondary/90 text-white h-12 text-lg">
-                  Send Message
-                </Button>
+               <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-secondary hover:bg-secondary/90 text-white h-12 text-lg"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </Button>
               </form>
             </motion.div>
 

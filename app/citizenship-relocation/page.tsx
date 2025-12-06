@@ -192,7 +192,7 @@ export default function CitizenshipRelocationPage() {
           </Accordion>
         </div>
       </section>
-
+{/* 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-12">
@@ -233,7 +233,7 @@ export default function CitizenshipRelocationPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-24 bg-gradient-to-r from-gray-900 to-black text-white">

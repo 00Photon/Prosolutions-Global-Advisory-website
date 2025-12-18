@@ -76,6 +76,7 @@ export default function ServicesPage() {
                 Every engagement starts with a shared discovery workshop so our corporate, mobility, and real estate
                 teams align on your objectives. You gain a unified roadmap, fewer handoffs, and measurable outcomes.
               </p>
+              
             </div>
             <div className="relative h-[360px] rounded-2xl overflow-hidden shadow-xl">
               <Image

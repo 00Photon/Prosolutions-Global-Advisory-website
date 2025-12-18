@@ -64,7 +64,7 @@ export default function ServicesPage() {
       <PageHeader
         title="Integrated Advisory & Implementation"
         subtitle="Corporate structuring, citizenship strategies, and real estate advisory delivered by one coordinated firm."
-        backgroundImage="/diverse-businessman.png"
+      backgroundVideo="/travel.mp4"
       />
 
       <section className="py-16 md:py-24 bg-white">

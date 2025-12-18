@@ -54,7 +54,7 @@ export default function RealEstateServicesPage() {
         title="Global Real Estate Advisory"
         subtitle="Strategic Acquisition and Structuring of International Property"
         backgroundImage="/caribbean-luxury-resort-beach.jpg"
-        backgroundVideo="/travel.mp4"
+        backgroundVideo="/estate.mp4"
       />
 
       <section className="py-16 md:py-24 bg-white">

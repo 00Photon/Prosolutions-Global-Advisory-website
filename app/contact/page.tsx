@@ -97,7 +97,7 @@ export default function ContactPage() {
       <PageHeader
         title="Get in Touch"
         subtitle="Schedule a Confidential Consultation"
-        backgroundImage="/singapore-marina-bay-sands.png"
+    backgroundVideo="/travel.mp4"
       />
 
       <section className="py-14 lg:py-20 bg-white">

@@ -14,9 +14,20 @@ export function PageHeader({ title, subtitle, backgroundImage, backgroundVideo }
   return (
     <section className="relative min-h-[80vh] py-32 md:py-48 bg-slate-900 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-slate-900/70 z-10" />
+        <div className="absolute inset-0 bg-slate-900/10 z-10" />
         {backgroundVideo ? (
-          <video className="h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" poster={backgroundImage}>
+          <video
+            key={backgroundVideo}
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={backgroundImage}
+            aria-hidden="true"
+            disablePictureInPicture
+          >
             <source src={backgroundVideo} type="video/mp4" />
           </video>
         ) : backgroundImage ? (

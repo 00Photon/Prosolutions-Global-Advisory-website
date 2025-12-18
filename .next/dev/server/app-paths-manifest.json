@@ -5,6 +5,7 @@
   "/citizenship-relocation/page": "app/citizenship-relocation/page.js",
   "/contact/page": "app/contact/page.js",
   "/cookie-policy/page": "app/cookie-policy/page.js",
+  "/corporate-services/page": "app/corporate-services/page.js",
   "/employment-migration/page": "app/employment-migration/page.js",
   "/insights/[slug]/page": "app/insights/[slug]/page.js",
   "/insights/page": "app/insights/page.js",

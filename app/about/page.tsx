@@ -42,28 +42,138 @@ const values = [
 ]
 
 const stats = [
-  { value: "15+", label: "Years of Experience" },
-  { value: "50+", label: "Countries Served" },
-  { value: "1000+", label: "Successful Projects" },
-  { value: "98%", label: "Client Satisfaction" },
+  { value: "20+", label: "Years Combined Experience" },
+  { value: "20+", label: "Countries Served" },
+  { value: "$12.5M+", label: "Transaction Value" },
+  { value: "45+", label: "Satisfied Clients" },
 ]
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHeader
-        title="About Prosolutions Global Advisory"
-        subtitle="Your Trusted Partner in Global Migration, Business & International Real Estate Solutions"
-        backgroundImage="/modern-city-skyline-skyscraper-blue-hour.jpg"
-      />
-
-      <section className="py-16 md:py-24 bg-white">
+      {/* HERO SECTION */}
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-blue-50/40 to-transparent">
         <div className="container px-4 md:px-6">
-          <p className="text-secondary font-semibold tracking-[0.25em] uppercase mb-8 text-sm text-center md:text-left">
-            Your Trusted Partner in Global Migration, Business & International Real Estate Solutions
-          </p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-            <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="space-y-6 lg:pt-12"
+            >
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
+                About Prosolutions Global Advisory
+              </h1>
+              <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
+                Your Trusted Partner in Global Migration, Business & International Real Estate Solutions
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <div className="relative h-[380px] lg:h-[460px] rounded-2xl overflow-hidden shadow-2xl mx-auto max-w-lg">
+                <Image
+                  src="/network.jpg"
+                  alt="Global Network - Prosolutions Global Advisory"
+                  fill
+                  className="object-cover transition-transform duration-[4000ms] ease-out hover:scale-110"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+
+            {/* NEW: MESSAGE FROM GLOBAL MANAGING PARTNER */}
+      <section className="py-14 lg:py-20 bg-gray-50">
+        <div className="container px-4 md:px-6">
+          <div className="relative max-w-5xl mx-auto">
+            {/* Red corner flag */}
+            <div className="absolute -top-8 -left-8 w-32 h-32 bg-red-600 clip-path-polygon-[0_0,100%_0,0_100%] -z-10" />
+
+            <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-10">
+              Message from our Global Managing Partner
+            </h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+              {/* Left column: main text */}
+              <div className="lg:col-span-2 space-y-6 mt-22 text-lg text-muted-foreground leading-relaxed">
+                <p>
+                  At ProSolutions, we are driven by a commitment to excellence, innovation, and meaningful impact. Our goal has been to provide strategic solutions that empower individuals and businesses to thrive in an ever-evolving global landscape. We believe in building lasting relationships, delivering real value, and creating opportunities for long-term success.
+                </p>
+                <p>
+                  Our team, the backbone of ProSolution&apos;s success, is a group of experts in their respective fields. Each member brings specialized knowledge and a shared dedication to excellence. This allows us to tailor solutions to our clients&apos; needs comprehensively and effectively.
+                </p>
+                <p>
+                  As we look to the future, our unwavering commitment to innovation, collaboration, and most importantly, your success, continues to drive us forward. Every challenge presents an opportunity, and it is through our shared vision and expertise that we help our clients turn aspirations into reality.
+                </p>
+                <p>
+                  We deeply appreciate your trust in ProSolutions Global Advisory.
+                </p>
+                <p className="font-medium">Thank you for choosing us.</p>
+              </div>
+
+              {/* Right column: pull-quote + photo + signature */}
+              <div className="space-y-8">
+                {/* Pull-quote */}
+                <div className="relative bg-white p-8 rounded-2xl shadow-lg">
+                  <span className="absolute -top-6 left-8 text-8xl text-red-600 font-serif leading-none">&ldquo;</span>
+                  <p className="text-xl lg:text-2xl font-medium text-primary relative z-10">
+                    Our collaborative approach ensures that we provide not just advice but actionable solutions that deliver exceptional results.
+                  </p>
+                  <span className="absolute -bottom-6 right-8 text-8xl text-red-600 font-serif leading-none">&rdquo;</span>
+                </div>
+
+                {/* Photo */}
+                <div className="relative mx-auto w-72 h-96 rounded-3xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/ceo.png" // ← Replace with the actual path to the photo
+                    alt="Chinwe Azikiwe - Global Managing Partner"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* Name & Title */}
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <div className="w-4 h-4 rounded-full bg-red-600" />
+                    <h3 className="text-2xl font-bold text-primary">Chinwe Azikiwe</h3>
+                  </div>
+                  <p className="text-lg text-muted-foreground">Global Managing Partner</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHO WE ARE */}
+      <section className="py-14 lg:py-20 bg-white">
+        <div className="container px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-12">
+          
+            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/professional-team-office.jpg"
+                alt="Our Team"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+            </div>
+              <div className="space-y-6">
               <h2 className="text-3xl font-bold text-primary">Who We Are</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Prosolutions Global Advisory is a premier international advisory firm specializing in corporate
@@ -82,23 +192,16 @@ export default function AboutPage() {
                 position, and unlock new opportunities for growth.
               </p>
             </div>
-            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/professional-team-office.jpg"
-                alt="Our Team"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-primary text-white">
+
+
+      {/* STATS SECTION */}
+      <section className="py-14 lg:py-20 bg-primary text-white">
         <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -106,17 +209,20 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                className="space-y-2"
               >
-                <div className="text-4xl md:text-5xl font-bold mb-2">{stat.value}</div>
-                <div className="text-blue-100">{stat.label}</div>
+                <div className="text-4xl md:text-5xl font-bold text-secondary">{stat.value}</div>
+                <div className="text-sm md:text-base text-blue-100 font-medium uppercase tracking-wider">
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-white">
+      {/* CORE VALUES */}
+      <section className="py-14 lg:py-20 bg-white">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-primary mb-4">Our Core Values</h2>
@@ -148,9 +254,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-50">
+      {/* MISSION & VISION */}
+      <section className="py-14 lg:py-20 bg-slate-50">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col md:flex-row items-center gap-12 mb-24">
+          <div className="flex flex-col md:flex-row items-center gap-10 mb-16">
             <div className="flex-1 order-2 md:order-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
@@ -166,9 +273,9 @@ export default function AboutPage() {
             <div className="flex-1 space-y-6 order-1 md:order-2">
               <h3 className="text-2xl font-bold text-primary">Our Mission</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                To empower global citizens, business leaders, and wealth stewards to protect their assets, preserve
-                their lifestyle ambitions, and unlock new markets through expert advisory services and innovative
-                solutions.
+                At ProSolutions Global Advisory, our mission is to empower individuals, families, and businesses with
+                strategic pathways to global mobility, to global opportunities, wealth preservation &amp; sustainable
+                growth.
               </p>
               <ul className="space-y-3">
                 {[
@@ -186,7 +293,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="flex-1 space-y-6">
               <h3 className="text-2xl font-bold text-primary">Our Vision</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -224,7 +331,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      {/* WHY CHOOSE US */}
+      <section className="py-14 lg:py-20 bg-white">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-primary mb-4">Why Choose Prosolutions?</h2>
@@ -232,7 +340,7 @@ export default function AboutPage() {
               We combine global reach with local expertise to deliver unparalleled service.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {[
               {
                 title: "Comprehensive Services",
@@ -252,7 +360,7 @@ export default function AboutPage() {
               {
                 title: "Proven Track Record",
                 description:
-                  "Thousands of successful projects and satisfied clients across diverse industries and jurisdictions.",
+                  "45+ cross-border mandates completed since launch, with measurable value delivered for every client.",
               },
               {
                 title: "Personalized Approach",
@@ -284,7 +392,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-50">
+      {/* CTA */}
+      <section className="py-14 lg:py-20 bg-slate-50">
         <div className="container px-4 md:px-6 text-center">
           <div className="max-w-3xl mx-auto space-y-6">
             <h2 className="text-3xl font-bold text-primary">Ready to Start Your Global Journey?</h2>

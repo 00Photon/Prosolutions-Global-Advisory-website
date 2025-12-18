@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "557b687155c021894dad1efafdc36b22",
-    "previewModeSigningKey": "dfd7816661208d8087c820c7ae6d4e916a1d69bf58b0b09605c90a45119cf770",
-    "previewModeEncryptionKey": "53e0bb31df60fa92c7ede4567d8275feacaaffa28e268d531377294fd1bc3c83"
-  }
-}
+{"version":4,"routes":{"/case-studies/corporate-hq-relocation":{},"/case-studies/citizenship-by-investment-family-office":{},"/case-studies/commercial-asset-acquisition":{},"/case-studies/family-office-structuring":{},"/case-studies/successful-citizenship-by-investment-cbi-placement-for-grenada":{},"/case-studies/successful-eb-5-investment-and-eb-5-visa-placement":{},"/case-studies/seamless-relocation-of-a-pan-african-fintech-headquarters-to-dubai":{},"/case-studies/malta-citizenship-for-a-middle-eastern-hni":{},"/case-studies/successful-canada-pr-through-start-up-visa-program":{},"/case-studies/successful-canadian-intra-company-transfer-ict":{},"/case-studies/successful-e2-visa-placement-for-u-s-business-expansion":{},"/case-studies/successful-south-african-financial-independence-visa":{},"/case-studies/successful-south-african-business-setup-visa":{},"/case-studies/successful-u-s-intra-company-transfer-l1-visa":{},"/case-studies/family-office-structuring-in-lagos-nigeria":{},"/insights/svg-cbi-revival-proposal":{},"/insights/citizenship-by-investment-grenada":{},"/insights/european-residency-greece-golden-visa":{},"/insights/uae-corporate-tax-update":{},"/insights/global-mobility-trends-2025":{},"/insights/prime-real-estate-markets":{}},"dynamicRoutes":{"/case-studies/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/case-studies/[slug]","routeRegex":"^\\/case\\-studies\\/([^/]+?)(?:\\/)?$","allowHeader":[]},"/insights/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/insights/[slug]","routeRegex":"^\\/insights\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"d99ac2df0d4a65370799720021ccd70f","previewModeSigningKey":"d230f28df4602ecaa8a4f3c8d0f69683d44281ab20dc6ea88a4298a6de37115b","previewModeEncryptionKey":"ac26963cde607a9cbe429eac34a11e142ac00c931c95bb34d6bbc573e134c7c0"}}

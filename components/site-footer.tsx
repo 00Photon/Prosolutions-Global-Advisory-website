@@ -65,34 +65,34 @@ export function SiteFooter() {
                   <MapPin className="h-5 w-5 text-secondary shrink-0" />
                   <div>
                     <p className="font-semibold text-white">Lagos Advisory Suite</p>
-                    <p>5th Floor, Landmark Towers, Water Corporation Rd, Victoria Island, Lagos</p>
+                    <p>Plot 15, Orchid Road by Chevron, Lekki Toll Plaza II, Lekki, Lagos</p>
                   </div>
                 </div>
-                <p className="pl-8 text-xs text-slate-500">Contact: Althea Adebayo · +234 808 555 0190</p>
+                <p className="pl-8 text-xs text-slate-500">Phone: +234 802 338 3139</p>
               </li>
               <li className="text-sm text-slate-400 space-y-1">
                 <div className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-secondary shrink-0" />
                   <div>
                     <p className="font-semibold text-white">Abuja Liaison Office</p>
-                    <p>3rd Floor, 41 Gana Street, Maitama District, Abuja</p>
+                    <p>1st Floor, Sterling Bank Plaza, Mohammadu Buhari Way, Central Business District, Abuja 900103</p>
                   </div>
                 </div>
-                <p className="pl-8 text-xs text-slate-500">Contact: Althea Adebayo · +234 809 555 3771</p>
+                <p className="pl-8 text-xs text-slate-500">Phone: +234 802 468 8522</p>
               </li>
               <li className="text-sm text-slate-400 space-y-1">
                 <div className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-secondary shrink-0" />
                   <div>
                     <p className="font-semibold text-white">Johannesburg Private Office</p>
-                    <p>Level 8, 7 Fredman Drive, Sandton, Johannesburg, South Africa</p>
+                    <p>2nd Floor, Nelson Mandela Square, West Tower, Maude St, Johannesburg, South Africa</p>
                   </div>
                 </div>
-                <p className="pl-8 text-xs text-slate-500">Contact: Althea Jacobs · +27 11 555 9021</p>
+                <p className="pl-8 text-xs text-slate-500">Phone: +27 82 725 0605</p>
               </li>
               <li className="flex items-center gap-3 text-sm text-slate-400">
                 <Phone className="h-5 w-5 text-secondary shrink-0" />
-                <span>+971 4 123 4567</span>
+                <span>+234 802 338 3139</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-slate-400">
                 <Mail className="h-5 w-5 text-secondary shrink-0" />

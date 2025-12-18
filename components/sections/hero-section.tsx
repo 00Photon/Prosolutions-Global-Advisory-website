@@ -10,7 +10,7 @@ import Image from "next/image"
 const slides = [
   {
     id: 1,
-    image: "/pex.jpg",
+    image: "/global.jpg",
     title: "Your Global Future, Secured",
     subtitle:
       "Prosolutions Global Advisory is a premier, independent provider of specialised services for international corporations, private investors, and globally mobile individuals.",
@@ -19,7 +19,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "/pix.jpg",
+    image: "/pex.jpg",
     title: "Strategic Corporate Solutions",
     subtitle:
       "Comprehensive company formation, management, and advisory services tailored to your international business needs.",
@@ -28,7 +28,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "/map.jpg",
+    image: "/citizen.jpg",
     title: "Citizenship & Mobility",
     subtitle:
       "Unlock global mobility and secure your family's future with our expert guidance on premier citizenship and residency programs.",
@@ -37,7 +37,7 @@ const slides = [
   },
   {
     id: 4,
-    image: "/estate.jpg",
+    image: "/dubai.jpg",
     title: "Real Estate Investment Advisory",
     subtitle:
       "Secure prime assets across emerging African and global cities with our on-the-ground research and transaction support.",

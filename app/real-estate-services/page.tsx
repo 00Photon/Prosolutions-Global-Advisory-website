@@ -53,7 +53,8 @@ export default function RealEstateServicesPage() {
       <PageHeader
         title="Global Real Estate Advisory"
         subtitle="Strategic Acquisition and Structuring of International Property"
-        backgroundImage="/london-modern-architecture-building.jpg"
+        backgroundImage="/caribbean-luxury-resort-beach.jpg"
+        backgroundVideo="/estate.mp4"
       />
 
       <section className="py-16 md:py-24 bg-white">

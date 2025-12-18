@@ -64,7 +64,7 @@ export default function ServicesPage() {
       <PageHeader
         title="Integrated Advisory & Implementation"
         subtitle="Corporate structuring, citizenship strategies, and real estate advisory delivered by one coordinated firm."
-        backgroundImage="/diverse-businessman.png"
+      backgroundVideo="/travel.mp4"
       />
 
       <section className="py-16 md:py-24 bg-white">
@@ -76,6 +76,7 @@ export default function ServicesPage() {
                 Every engagement starts with a shared discovery workshop so our corporate, mobility, and real estate
                 teams align on your objectives. You gain a unified roadmap, fewer handoffs, and measurable outcomes.
               </p>
+              
             </div>
             <div className="relative h-[360px] rounded-2xl overflow-hidden shadow-xl">
               <Image

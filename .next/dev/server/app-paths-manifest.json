@@ -1,4 +1,17 @@
 {
-  "/admin/submissions/page": "app/admin/submissions/page.js",
-  "/api/submit-contact/route": "app/api/submit-contact/route.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/case-studies/[slug]/page": "app/case-studies/[slug]/page.js",
+  "/citizenship-relocation/page": "app/citizenship-relocation/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/cookie-policy/page": "app/cookie-policy/page.js",
+  "/corporate-services/page": "app/corporate-services/page.js",
+  "/employment-migration/page": "app/employment-migration/page.js",
+  "/insights/[slug]/page": "app/insights/[slug]/page.js",
+  "/insights/page": "app/insights/page.js",
+  "/page": "app/page.js",
+  "/privacy-policy/page": "app/privacy-policy/page.js",
+  "/real-estate-services/page": "app/real-estate-services/page.js",
+  "/services/page": "app/services/page.js",
+  "/terms/page": "app/terms/page.js"
 }

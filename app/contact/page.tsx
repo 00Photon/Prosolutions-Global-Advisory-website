@@ -9,8 +9,29 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import { motion } from "framer-motion"
-import { useState } from 'react'
-import { toast } from 'sonner'
+import { useState } from "react"
+import { toast } from "sonner"
+
+const offices = [
+  {
+    name: "Lagos, Nigeria",
+    address: ["Plot 15, Orchid Road by Chevron", "Lekki Toll Plaza II, Lekki, Lagos"],
+    phone: "+234 802 338 3139",
+  },
+  {
+    name: "Abuja, Nigeria",
+    address: [
+      "1st Floor, Sterling Bank Plaza, Mohammadu Buhari Way",
+      "Central Business District, Abuja 900103, Federal Capital Territory",
+    ],
+    phone: "+234 802 468 8522",
+  },
+  {
+    name: "Johannesburg, South Africa",
+    address: ["2nd Floor, Nelson Mandela Square, West Tower", "Maude St, Johannesburg, South Africa"],
+    phone: "+27 82 725 0605",
+  },
+]
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -76,12 +97,12 @@ export default function ContactPage() {
       <PageHeader
         title="Get in Touch"
         subtitle="Schedule a Confidential Consultation"
-        backgroundImage="/singapore-marina-bay-sands.png"
+    backgroundVideo="/travel.mp4"
       />
 
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-14 lg:py-20 bg-white">
         <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Contact Form */}
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
               <div className="mb-8">
@@ -171,61 +192,78 @@ export default function ContactPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="space-y-8"
             >
-              <Card className="border-none shadow-lg bg-slate-50">
+              <Card className="border border-slate-100 shadow-lg bg-white">
                 <CardContent className="p-8 space-y-6">
-                  <h3 className="text-xl font-bold text-primary mb-6">Contact Information</h3>
+                  <h3 className="text-xl font-bold text-primary mb-2">Contact Information</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Connect directly with our regional teams for the fastest support.
+                  </p>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <MapPin className="h-5 w-5 text-primary" />
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <Mail className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary">Email</h4>
+                        <p className="text-muted-foreground">contact@prosolga.com</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-primary">Global Headquarters</h4>
-                      <p className="text-muted-foreground">
-                        Financial District
-                        <br />
-                        Dubai, United Arab Emirates
-                      </p>
+
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <Clock className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary">Office Hours</h4>
+                        <p className="text-muted-foreground">
+                          Monday - Friday: 9:00 AM - 6:00 PM
+                          <br />
+                          Saturday - Sunday: Closed
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <Phone className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-primary">Phone</h4>
-                      <p className="text-muted-foreground">+971 4 123 4567</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <Mail className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-primary">Email</h4>
-                      <p className="text-muted-foreground">contact@prosolga.com</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <Clock className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-primary">Office Hours</h4>
-                      <p className="text-muted-foreground">
-                        Monday - Friday: 9:00 AM - 6:00 PM
-                        <br />
-                        Saturday - Sunday: Closed
-                      </p>
+                  <div className="pt-6 border-t border-slate-100 space-y-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                      Regional Offices
+                    </p>
+                    <div className="space-y-4">
+                      {offices.map((office) => (
+                        <div key={office.name} className="rounded-xl border border-slate-100 p-4 space-y-3">
+                          <div className="flex items-start gap-4">
+                            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                              <MapPin className="h-5 w-5 text-primary" />
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-primary">{office.name}</h4>
+                              <p className="text-muted-foreground">
+                                {office.address.map((line) => (
+                                  <span key={line} className="block">
+                                    {line}
+                                  </span>
+                                ))}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-4">
+                            <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                              <Phone className="h-5 w-5 text-secondary" />
+                            </div>
+                            <div>
+                              <h5 className="font-semibold text-primary">Phone</h5>
+                              <p className="text-muted-foreground">{office.phone}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
+              <div className="bg-primary/5 p-6 rounded-xl border border-primary/10">
                 <h4 className="font-semibold text-primary mb-2">Privacy Commitment</h4>
                 <p className="text-sm text-muted-foreground">
                   We respect your privacy. All information provided is treated with the strictest confidence in

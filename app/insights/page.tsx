@@ -14,7 +14,7 @@ export default async function InsightsPage() {
       <PageHeader
         title="Insights & Analysis"
         subtitle="Briefings on corporate governance, global mobility, and cross-border investment trends."
-      backgroundVideo="/travel.mp4"
+        backgroundImage="/insi.jpg"
       />
 
       <section className="py-16 bg-white">

@@ -45,8 +45,8 @@ const serviceCategories = [
 
 const differentiators = [
   {
-    title: "Africa-Led Expertise",
-    copy: "On-the-ground insight across key African markets paired with established hubs in Dubai and London.",
+    title: "Multi Cultural Expertise",
+    copy: "On-the-ground insight across Global markets paired with established hubs in Dubai and London.",
   },
   {
     title: "Confidential & Compliant",
@@ -61,11 +61,13 @@ const differentiators = [
 export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHeader
-        title="Integrated Advisory & Implementation"
-        subtitle="Corporate structuring, citizenship strategies, and real estate advisory delivered by one coordinated firm."
-      backgroundVideo="/travel.mp4"
+       <PageHeader
+        title="Employment Migration & Global Talent Mobility"
+        subtitle="Connecting skilled workers, professionals, and executives with compliant pathways to work in the Middle East, EU, US, and UK."
+        backgroundImage="/young.jpg"
+            //  backgroundImage="/emplo.png"
       />
+
 
       <section className="py-16 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
@@ -78,9 +80,9 @@ export default function ServicesPage() {
               </p>
               
             </div>
-            <div className="relative h-[360px] rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative h-[460px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/diverse-woman-portrait.png"
+                src="/happy.jpg"
                 alt="Prosolutions team session"
                 fill
                 className="object-cover object-top"

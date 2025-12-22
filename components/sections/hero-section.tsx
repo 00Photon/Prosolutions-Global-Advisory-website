@@ -28,7 +28,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "/citizen.jpg",
+    image: "/couples.jpg",
     title: "Citizenship & Mobility",
     subtitle:
       "Unlock global mobility and secure your family's future with our expert guidance on premier citizenship and residency programs.",
@@ -78,7 +78,7 @@ export function HeroSection() {
               alt={slides[currentSlide].title}
               fill
               priority={currentSlide === 0}
-              className="object-cover object-center"
+              className="object-cover object-right"
               sizes="100vw"
             />
           </div>

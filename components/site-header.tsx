@@ -134,7 +134,7 @@ export function SiteHeader() {
                 </div>
               </a>
               <a
-                href="https://wa.me/1234567890"
+                href="https://wa.me/2348023383139"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors group"
@@ -149,7 +149,7 @@ export function SiteHeader() {
               </a>
 
               <a
-                href="tel:+1234567890"
+                href="tel:+2348023383139"
                 className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors group"
               >
                 <div className="h-10 w-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 group-hover:bg-purple-100 transition-colors">
@@ -157,7 +157,7 @@ export function SiteHeader() {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-medium text-gray-900">Call Us</span>
-                  <span className="text-xs text-gray-500">+1 (234) 567-890</span>
+                  <span className="text-xs text-gray-500">+234 802 338 3139</span>
                 </div>
               </a>
             </div>

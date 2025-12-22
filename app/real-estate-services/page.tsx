@@ -76,7 +76,7 @@ export default function RealEstateServicesPage() {
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/london-modern-architecture-building.jpg"
+                src="/sky.jpg"
                 alt="Real Estate Investment"
                 fill
                 className="object-cover"

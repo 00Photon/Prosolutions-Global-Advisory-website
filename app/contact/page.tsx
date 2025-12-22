@@ -94,12 +94,11 @@ export default function ContactPage() {
   }
   return (
     <div className="flex flex-col min-h-screen">
-      <PageHeader
+       <PageHeader
         title="Get in Touch"
         subtitle="Schedule a Confidential Consultation"
-    backgroundVideo="/travel.mp4"
+        backgroundImage="/contact.jpg"
       />
-
       <section className="py-14 lg:py-20 bg-white">
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">

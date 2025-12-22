@@ -51,112 +51,17 @@ const stats = [
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* HERO SECTION */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-blue-50/40 to-transparent">
-        <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="space-y-6 lg:pt-12"
-            >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-                About Prosolutions Global Advisory
-              </h1>
-              <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
-                Your Trusted Partner in Global Migration, Business & International Real Estate Solutions
-              </p>
-            </motion.div>
+ 
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              <div className="relative h-[380px] lg:h-[460px] rounded-2xl overflow-hidden shadow-2xl mx-auto max-w-lg">
-                <Image
-                  src="/network.jpg"
-                  alt="Global Network - Prosolutions Global Advisory"
-                  fill
-                  className="object-cover transition-transform duration-[4000ms] ease-out hover:scale-110"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+        <PageHeader
+        title="About Prosolutions Global Advisory"
+        subtitle="Your Trusted Partner in Global Migration, Corporate Structuring & International Real Estate Solutions"
+        backgroundImage="/about.jpg"
+      />
 
 
             {/* NEW: MESSAGE FROM GLOBAL MANAGING PARTNER */}
-      <section className="py-14 lg:py-20 bg-gray-50">
-        <div className="container px-4 md:px-6">
-          <div className="relative max-w-5xl mx-auto">
-            {/* Red corner flag */}
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-red-600 clip-path-polygon-[0_0,100%_0,0_100%] -z-10" />
-
-            <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-10">
-              Message from our Global Managing Partner
-            </h2>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-              {/* Left column: main text */}
-              <div className="lg:col-span-2 space-y-6 mt-22 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  At ProSolutions, we are driven by a commitment to excellence, innovation, and meaningful impact. Our goal has been to provide strategic solutions that empower individuals and businesses to thrive in an ever-evolving global landscape. We believe in building lasting relationships, delivering real value, and creating opportunities for long-term success.
-                </p>
-                <p>
-                  Our team, the backbone of ProSolution&apos;s success, is a group of experts in their respective fields. Each member brings specialized knowledge and a shared dedication to excellence. This allows us to tailor solutions to our clients&apos; needs comprehensively and effectively.
-                </p>
-                <p>
-                  As we look to the future, our unwavering commitment to innovation, collaboration, and most importantly, your success, continues to drive us forward. Every challenge presents an opportunity, and it is through our shared vision and expertise that we help our clients turn aspirations into reality.
-                </p>
-                <p>
-                  We deeply appreciate your trust in ProSolutions Global Advisory.
-                </p>
-                <p className="font-medium">Thank you for choosing us.</p>
-              </div>
-
-              {/* Right column: pull-quote + photo + signature */}
-              <div className="space-y-8">
-                {/* Pull-quote */}
-                <div className="relative bg-white p-8 rounded-2xl shadow-lg">
-                  <span className="absolute -top-6 left-8 text-8xl text-red-600 font-serif leading-none">&ldquo;</span>
-                  <p className="text-xl lg:text-2xl font-medium text-primary relative z-10">
-                    Our collaborative approach ensures that we provide not just advice but actionable solutions that deliver exceptional results.
-                  </p>
-                  <span className="absolute -bottom-6 right-8 text-8xl text-red-600 font-serif leading-none">&rdquo;</span>
-                </div>
-
-                {/* Photo */}
-                <div className="relative mx-auto w-72 h-96 rounded-3xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/ceo.png" // ← Replace with the actual path to the photo
-                    alt="Chinwe Azikiwe - Global Managing Partner"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                {/* Name & Title */}
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-3 mb-2">
-                    <div className="w-4 h-4 rounded-full bg-red-600" />
-                    <h3 className="text-2xl font-bold text-primary">Chinwe Azikiwe</h3>
-                  </div>
-                  <p className="text-lg text-muted-foreground">Global Managing Partner</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+   
 
       {/* WHO WE ARE */}
       <section className="py-14 lg:py-20 bg-white">
@@ -274,7 +179,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-primary">Our Mission</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 At ProSolutions Global Advisory, our mission is to empower individuals, families, and businesses with
-                strategic pathways to global mobility, to global opportunities, wealth preservation &amp; sustainable
+                strategic pathways to global mobility, global opportunities, wealth preservation &amp; sustainable
                 growth.
               </p>
               <ul className="space-y-3">
@@ -388,6 +293,69 @@ export default function AboutPage() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+         <section className="py-14 lg:py-20 bg-gray-50">
+        <div className="container px-4 md:px-6">
+          <div className="relative max-w-5xl mx-auto">
+            {/* Red corner flag */}
+            <div className="absolute -top-8 -left-8 w-32 h-32 bg-red-600 clip-path-polygon-[0_0,100%_0,0_100%] -z-10" />
+
+            <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-10">
+              Message from our Global Managing Partner
+            </h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+              {/* Left column: main text */}
+              <div className="lg:col-span-2 space-y-6 mt-22 text-lg text-muted-foreground leading-relaxed">
+                <p>
+                  At ProSolutions, we are driven by a commitment to excellence, innovation, and meaningful impact. Our goal has been to provide strategic solutions that empower individuals and businesses to thrive in an ever-evolving global landscape. We believe in building lasting relationships, delivering real value, and creating opportunities for long-term success.
+                </p>
+                <p>
+                  Our team, the backbone of ProSolution&apos;s success, is a group of experts in their respective fields. Each member brings specialized knowledge and a shared dedication to excellence. This allows us to tailor solutions to our clients&apos; needs comprehensively and effectively.
+                </p>
+                <p>
+                  As we look to the future, our unwavering commitment to innovation, collaboration, and most importantly, your success, continues to drive us forward. Every challenge presents an opportunity, and it is through our shared vision and expertise that we help our clients turn aspirations into reality.
+                </p>
+                <p>
+                  We deeply appreciate your trust in ProSolutions Global Advisory.
+                </p>
+                <p className="font-medium">Thank you for choosing us.</p>
+              </div>
+
+              {/* Right column: pull-quote + photo + signature */}
+              <div className="space-y-8">
+                {/* Pull-quote */}
+                <div className="relative bg-white p-8 rounded-2xl shadow-lg">
+                  <span className="absolute -top-6 left-8 text-8xl text-red-600 font-serif leading-none">&ldquo;</span>
+                  <p className="text-xl lg:text-2xl font-medium text-primary relative z-10">
+                    Our collaborative approach ensures that we provide not just advice but actionable solutions that deliver exceptional results.
+                  </p>
+                  <span className="absolute -bottom-6 right-8 text-8xl text-red-600 font-serif leading-none">&rdquo;</span>
+                </div>
+
+                {/* Photo */}
+                <div className="relative mx-auto w-72 h-96 rounded-3xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/ceo.png" // ← Replace with the actual path to the photo
+                    alt="Chinwe Azikiwe - Global Managing Partner"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* Name & Title */}
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <div className="w-4 h-4 rounded-full bg-red-600" />
+                    <h3 className="text-2xl font-bold text-primary">Chinwe Azikiwe</h3>
+                  </div>
+                  <p className="text-lg text-muted-foreground">Global Managing Partner</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

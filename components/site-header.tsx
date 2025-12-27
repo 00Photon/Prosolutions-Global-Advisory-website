@@ -2,22 +2,66 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, Globe, Mail, Phone, MessageCircle, X } from "lucide-react"
+import { Menu, Globe, Mail, Phone, MessageCircle, X, ChevronDown, ShieldCheck, BriefcaseBusiness, Building2, Home, Globe2 } from "lucide-react"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
+import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = React.useState(false)
   const [showContactModal, setShowContactModal] = React.useState(false)
+  const [isServicesExpanded, setIsServicesExpanded] = React.useState(false)
+  const pathname = usePathname()
 
   const navigation = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
+    { name: "Services", href: "/services", type: "services" as const },
     { name: "Insights", href: "/insights" },
     { name: "Contact", href: "/contact" },
+  ]
+
+  const services = [
+    {
+      name: "Citizenship & Residency",
+      href: "/citizenship-relocation",
+      description: "CBI, RBI, and relocation concierge for families and executives.",
+      icon: ShieldCheck,
+    },
+    {
+      name: "Employment Migration",
+      href: "/employment-migration",
+      description: "Work permits, executive mobility, and HR compliance across regions.",
+      icon: BriefcaseBusiness,
+    },
+    {
+      name: "Corporate Services",
+      href: "/corporate-services",
+      description: "Entity setup, governance, structuring, treasury, and compliance.",
+      icon: Building2,
+    },
+    {
+      name: "Real Estate Services",
+      href: "/real-estate-services",
+      description: "Luxury, investment, and commercial property scouting and diligence.",
+      icon: Home,
+    },
+    {
+      name: "All Services",
+      href: "/services",
+      description: "See the full scope of how we support your global expansion.",
+      icon: Globe2,
+    },
   ]
 
   return (
@@ -39,13 +83,61 @@ export function SiteHeader() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              >
-                {item.name}
-              </Link>
+              item.type === "services" ? (
+                <NavigationMenu key={item.name} viewport={false} className="flex-none">
+                  <NavigationMenuList className="gap-0">
+                    <NavigationMenuItem>
+                      <NavigationMenuTrigger
+                        className={cn(
+                          "bg-transparent px-0 py-2 text-sm font-medium text-muted-foreground hover:text-primary data-[state=open]:text-primary",
+                          services.some((s) => pathname.startsWith(s.href)) && "text-primary font-semibold",
+                        )}
+                      >
+                        {item.name}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent className="shadow-lg border bg-white/95 backdrop-blur">
+                        <div className="grid gap-3 p-4 w-[360px]">
+                          {services.map((service) => {
+                            const Icon = service.icon
+                            const isActive = pathname.startsWith(service.href)
+                            return (
+                              <Link
+                                key={service.name}
+                                href={service.href}
+                                className={cn(
+                                  "flex items-start gap-3 rounded-xl p-3 hover:bg-primary/5 transition-colors",
+                                  isActive && "border border-primary/20 bg-primary/5",
+                                )}
+                              >
+                                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                                  <Icon className="h-5 w-5" />
+                                </div>
+                                <div>
+                                  <p className={cn("text-sm font-semibold text-foreground", isActive && "text-primary")}>
+                                    {service.name}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground leading-relaxed">{service.description}</p>
+                                </div>
+                              </Link>
+                            )
+                          })}
+                        </div>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    "text-sm font-medium text-muted-foreground hover:text-primary transition-colors",
+                    (item.href === "/" ? pathname === "/" : pathname.startsWith(item.href)) && "text-primary font-semibold",
+                  )}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
             <Button
               onClick={() => setShowContactModal(true)}
@@ -73,16 +165,53 @@ export function SiteHeader() {
                   <Image src="/logo.png" alt="ProSolutions Logo" width={120} height={40} />
                 </Link>
                 <nav className="flex flex-col gap-4 p-4 ">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="text-sm font-medium text-foreground hover:text-primary"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  {navigation.map((item) =>
+                    item.type === "services" ? (
+                      <div key={item.name} className="flex flex-col gap-2">
+                        <button
+                          onClick={() => setIsServicesExpanded((prev) => !prev)}
+                          className={cn(
+                            "flex items-center justify-between text-sm font-medium text-foreground hover:text-primary transition-colors",
+                            services.some((s) => pathname.startsWith(s.href)) && "text-primary",
+                          )}
+                        >
+                          <span>{item.name}</span>
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform ${isServicesExpanded ? "rotate-180" : ""}`}
+                          />
+                        </button>
+                        {isServicesExpanded && (
+                          <div className="ml-3 flex flex-col gap-2">
+                            {services.map((service) => (
+                              <Link
+                                key={service.name}
+                                href={service.href}
+                                className={cn(
+                                  "text-sm text-muted-foreground hover:text-primary",
+                                  pathname.startsWith(service.href) && "text-primary font-semibold",
+                                )}
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className={cn(
+                          "text-sm font-medium text-foreground hover:text-primary",
+                          (item.href === "/" ? pathname === "/" : pathname.startsWith(item.href)) && "text-primary font-semibold",
+                        )}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ),
+                  )}
                   <Button
                     onClick={() => {
                       setIsOpen(false)

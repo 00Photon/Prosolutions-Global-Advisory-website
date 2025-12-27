@@ -101,15 +101,15 @@ export default function ServicesPage() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <Card className="h-full border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                   <CardHeader>
                     <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-4">
                       <service.icon className="h-6 w-6 text-secondary" />
                     </div>
                     <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-muted-foreground">{service.description}</p>
+                  <CardContent className="space-y-4 flex-1 flex flex-col">
+                    <p className="text-muted-foreground leading-relaxed break-words">{service.description}</p>
                     <ul className="space-y-2 text-sm text-slate-600">
                       {service.highlights.map((item) => (
                         <li key={item} className="flex items-center gap-2">
@@ -118,9 +118,14 @@ export default function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <Button variant="link" className="px-0" asChild>
-                      <Link href={service.link}>
-                        Explore {service.title} <ArrowRight className="ml-2 h-4 w-4" />
+                    <Button
+                      size="lg"
+                      className="mt-auto w-full justify-center gap-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 py-3"
+                      asChild
+                    >
+                      <Link href={service.link} className="flex w-full items-center justify-center gap-2 text-center px-2">
+                        <span className="text-base font-semibold leading-snug whitespace-normal break-words text-center">Explore More</span>
+                        <ArrowRight className="h-5 w-5 shrink-0" />
                       </Link>
                     </Button>
                   </CardContent>

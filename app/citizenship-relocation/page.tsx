@@ -54,7 +54,7 @@ export default function CitizenshipRelocationPage() {
       <PageHeader
         title="Citizenship & Residency by Investment"
         subtitle="Your gateway to global mobility, security, and lifestyle flexibility."
-        backgroundImage="/collated/investment/v1.png"
+        backgroundImage="/collated/citizen.png"
       />
 
       {/* CBI Section */}

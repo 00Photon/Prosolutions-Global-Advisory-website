@@ -1,12 +1,7 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/about/page": "app/about/page.js",
-  "/citizenship-relocation/page": "app/citizenship-relocation/page.js",
   "/contact/page": "app/contact/page.js",
-  "/corporate-services/page": "app/corporate-services/page.js",
-  "/employment-migration/page": "app/employment-migration/page.js",
+  "/insights/[slug]/page": "app/insights/[slug]/page.js",
   "/insights/page": "app/insights/page.js",
-  "/page": "app/page.js",
-  "/real-estate-services/page": "app/real-estate-services/page.js",
-  "/services/page": "app/services/page.js"
+  "/page": "app/page.js"
 }

@@ -64,7 +64,7 @@ export default function ServicesPage() {
        <PageHeader
         title="Employment Migration & Global Talent Mobility"
         subtitle="Connecting skilled workers, professionals, and executives with compliant pathways to work in the Middle East, EU, US, and UK."
-        backgroundImage="/young.jpg"
+        backgroundImage="/collated/2.png"
             //  backgroundImage="/emplo.png"
       />
 
@@ -82,7 +82,7 @@ export default function ServicesPage() {
             </div>
             <div className="relative h-[460px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/happy.jpg"
+                src="/collated/seamless.png"
                 alt="Prosolutions team session"
                 fill
                 className="object-cover object-top"

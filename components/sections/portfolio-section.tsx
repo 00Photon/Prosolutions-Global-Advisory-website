@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
   Dialog,
@@ -35,35 +34,35 @@ export function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-            >
-              <Dialog>
-                <DialogTrigger asChild>
-                  <button className="w-full text-left">
-                    <Card className="overflow-hidden border-none shadow-md group h-full cursor-pointer hover:shadow-lg transition-shadow">
-                      <div className="relative aspect-[4/3] overflow-hidden">
-                        <Image
-                          src={project.heroImage || "/placeholder.svg"}
-                          alt={project.title}
-                          fill
-                          className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                          loading={index === 0 ? "eager" : "lazy"}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <Badge className="absolute top-4 right-4 bg-white/90 text-primary">
-                          {project.category}
-                        </Badge>
+              >
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button className="w-full text-left">
+                      <div className="overflow-hidden border border-slate-100 bg-white shadow-md group h-full cursor-pointer hover:shadow-lg transition-shadow rounded-xl flex flex-col">
+                        <div className="relative aspect-[4/3] overflow-hidden">
+                          <Image
+                            src={project.heroImage || "/placeholder.svg"}
+                            alt={project.title}
+                            fill
+                            className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                            loading={index === 0 ? "eager" : "lazy"}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          <Badge className="absolute top-4 right-4 bg-white/90 text-primary">
+                            {project.category}
+                          </Badge>
+                        </div>
+                        <div className="p-5 flex-1 flex flex-col gap-2">
+                          <div className="text-sm text-muted-foreground">{project.location}</div>
+                          <h3 className="text-lg font-bold text-primary group-hover:text-secondary transition-colors">
+                            {project.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground line-clamp-2 flex-1">{project.summary}</p>
+                        </div>
                       </div>
-                      <CardContent className="p-5">
-                        <div className="text-sm text-muted-foreground mb-2">{project.location}</div>
-                        <h3 className="text-lg font-bold text-primary group-hover:text-secondary transition-colors">
-                          {project.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{project.summary}</p>
-                      </CardContent>
-                    </Card>
-                  </button>
-                </DialogTrigger>
+                    </button>
+                  </DialogTrigger>
 
                 <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-8">
                   <DialogHeader>

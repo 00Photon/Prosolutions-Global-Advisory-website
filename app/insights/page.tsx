@@ -1,7 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
 import { PageHeader } from "@/components/page-header"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Calendar, ArrowLeft } from "lucide-react"
 import { getAllInsights } from "@/lib/insights"
@@ -28,11 +27,11 @@ export default async function InsightsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {insights.map((item) => (
-              <Card
+              <div
                 key={item.slug}
-                className="h-full border border-slate-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                className="h-full border border-slate-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden rounded-xl bg-white flex flex-col"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={item.coverImage || "/placeholder.svg"}
                     alt={item.title}
@@ -41,7 +40,7 @@ export default async function InsightsPage() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
-                <CardHeader>
+                <div className="px-6 pt-6">
                   <div className="flex items-center text-sm text-muted-foreground mb-2">
                     <Calendar className="h-4 w-4 mr-2" />
                     {new Date(item.date).toLocaleDateString(undefined, {
@@ -50,15 +49,15 @@ export default async function InsightsPage() {
                       day: "numeric",
                     })}
                   </div>
-                  <CardTitle className="text-xl text-primary">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">{item.excerpt}</p>
+                  <h3 className="text-xl font-bold text-primary">{item.title}</h3>
+                </div>
+                <div className="px-6 pb-6 pt-3 flex-1 flex flex-col gap-4">
+                  <p className="text-muted-foreground flex-1">{item.excerpt}</p>
                   <Button variant="link" className="px-0" asChild>
                     <Link href={`/insights/${item.slug}`}>Read Article →</Link>
                   </Button>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>

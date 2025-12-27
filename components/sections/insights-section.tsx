@@ -3,7 +3,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Calendar } from "lucide-react"
 import type { InsightSummary } from "@/lib/insights"
@@ -39,8 +38,8 @@ export function InsightsSection({ insights }: InsightsSectionProps) {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow duration-300 group border-slate-200">
-                <div className="relative h-48 overflow-hidden">
+              <div className="h-full overflow-hidden hover:shadow-lg transition-shadow duration-300 group border border-slate-200 rounded-xl bg-white flex flex-col">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={item.coverImage || "/placeholder.svg"}
                     alt={item.title}
@@ -53,7 +52,7 @@ export function InsightsSection({ insights }: InsightsSectionProps) {
                     {item.category}
                   </div>
                 </div>
-                <CardHeader>
+                <div className="px-6 pt-6">
                   <div className="flex items-center text-sm text-muted-foreground mb-2">
                     <Calendar className="h-4 w-4 mr-2" />
                     {new Date(item.date).toLocaleDateString(undefined, {
@@ -62,17 +61,17 @@ export function InsightsSection({ insights }: InsightsSectionProps) {
                       day: "numeric",
                     })}
                   </div>
-                  <CardTitle className="text-xl font-bold group-hover:text-secondary transition-colors line-clamp-2">
+                  <h3 className="text-xl font-bold group-hover:text-secondary transition-colors line-clamp-2 text-primary">
                     {item.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">{item.excerpt}</p>
+                  </h3>
+                </div>
+                <div className="px-6 pb-6 pt-3 flex-1 flex flex-col">
+                  <p className="text-muted-foreground mb-4 line-clamp-3 flex-1">{item.excerpt}</p>
                   <Button variant="link" className="p-0 h-auto font-semibold text-primary" asChild>
                     <Link href={`/insights/${item.slug}`}>Read More &rarr;</Link>
                   </Button>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

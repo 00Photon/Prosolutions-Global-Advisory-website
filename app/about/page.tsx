@@ -166,7 +166,7 @@ export default function AboutPage() {
             <div className="flex-1 order-2 md:order-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/global-business-network.jpg"
+                  src="/collated/mission.png"
                   alt="Our Mission"
                   fill
                   className="object-cover"
@@ -223,7 +223,7 @@ export default function AboutPage() {
             <div className="flex-1">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/future-vision-technology.jpg"
+                  src="/collated/vision.png"
                   alt="Our Vision"
                   fill
                   className="object-cover"

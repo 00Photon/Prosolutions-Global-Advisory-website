@@ -56,7 +56,7 @@ export default function AboutPage() {
         <PageHeader
         title="About Prosolutions Global Advisory"
         subtitle="Your Trusted Partner in Global Migration, Corporate Structuring & International Real Estate Solutions"
-        backgroundImage="/about.jpg"
+        backgroundImage="/map.jpg"
       />
 
 

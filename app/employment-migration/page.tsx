@@ -87,7 +87,7 @@ export default function EmploymentMigrationPage() {
       <PageHeader
         title="Employment Migration & Global Talent Mobility"
         subtitle="Connecting skilled workers, professionals, and executives with compliant pathways to work in the Middle East, EU, US, and UK."
-        backgroundImage="/employ.jpg"
+        backgroundImage="/collated/employment.png"
       />
 
       <section className="py-16 md:py-20">

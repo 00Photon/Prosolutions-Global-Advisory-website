@@ -80,7 +80,7 @@ export default function CorporateServicesPage() {
       <PageHeader
         title="Comprehensive Corporate Services"
         subtitle="Entity formation, governance, and operational support for ambitious global companies."
-        backgroundImage="/busi.jpg"
+        backgroundImage="/collated/corporate-services.png"
       />
 
       <section className="py-16 md:py-24 bg-white">
@@ -100,7 +100,7 @@ export default function CorporateServicesPage() {
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/medium.jpg"
+                src="/collated/trusted.png"
                 alt="Corporate advisors collaborating"
                 fill
                 className="object-cover"
@@ -142,7 +142,7 @@ export default function CorporateServicesPage() {
             <div className="flex-1 order-2 md:order-1">
               <div className="relative h-[380px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/future.jpg"
+                  src="/collated/global.png"
                   alt="Strategic corporate planning"
                   fill
                   className="object-cover object-top"
@@ -197,7 +197,7 @@ export default function CorporateServicesPage() {
             <div className="flex-1">
               <div className="relative h-[380px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/desk.jpg"
+                  src="/collated/finance.png"
                   alt="Financial excellence"
                   fill
                   className="object-cover"

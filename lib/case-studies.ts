@@ -17,7 +17,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Successful Citizenship by Investment (CBI) Placement for Grenada",
     category: "Citizenship by Investment",
     location: "Grenada",
-    heroImage: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/cbi.png",
     summary:
       "Structured a custom citizenship-by-investment plan for a Nigerian business mogul seeking global mobility, family security, and access to new opportunities.",
     challenge:
@@ -36,7 +36,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Successful EB-5 Investment and EB-5 Visa Placement",
     category: "EB-5 Visa",
     location: "United States",
-    heroImage: "https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/eb5.png",
     summary:
       "Managed full EB-5 investment and application for an Indian entrepreneur seeking U.S. permanent residency and future citizenship for their family.",
     challenge:
@@ -55,7 +55,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Seamless Relocation of a Pan-African Fintech Headquarters to Dubai",
     category: "Corporate Relocation",
     location: "Dubai, UAE",
-    heroImage: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/dubai.png",
     summary:
       "Relocated a fast-scaling pan-African fintech company's global HQ to Dubai for enhanced credibility, tax efficiency, and global expansion.",
     challenge:
@@ -74,7 +74,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Malta Citizenship for a Middle-Eastern HNI",
     category: "Citizenship by Investment",
     location: "Malta",
-    heroImage: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/malta.png",
     summary:
       "Secured reputable EU citizenship for a high-net-worth individual from the Middle East, providing global mobility and family security.",
     challenge:
@@ -93,7 +93,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Successful Canada PR Through Start-Up Visa Program",
     category: "Investment Immigration",
     location: "Canada",
-    heroImage: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/canada.png",
     summary:
       "Guided an Indian entrepreneur to Canadian permanent residency via the Start-Up Visa, enabling business expansion and family settlement.",
     challenge:
@@ -112,7 +112,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Successful Canadian Intra-Company Transfer (ICT)",
     category: "Intra-Company Transfer",
     location: "Toronto, Canada",
-    heroImage: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/transfer.png",
     summary:
       "Facilitated the transfer of a senior executive for a Nigerian construction company expanding into Toronto, Canada.",
     challenge:
@@ -131,7 +131,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Successful E2 Visa Placement for U.S. Business Expansion",
     category: "E-2 Visa",
     location: "Miami, USA",
-    heroImage: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/e2-visa.png",
     summary:
       "Enabled a Brazilian entrepreneur to establish and manage a U.S.-based business while relocating their family under the E2 investor visa.",
     challenge:
@@ -150,7 +150,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Successful South African Financial Independence Visa",
     category: "Financial Independence Visa",
     location: "Cape Town, South Africa",
-    heroImage: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/africa.png",
     summary:
       "Assisted a retired UK couple in relocating to South Africa for retirement, securing financial independence without employment needs.",
     challenge:
@@ -169,7 +169,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Successful South African Business Setup Visa",
     category: "Business Setup Visa",
     location: "Johannesburg, South Africa",
-    heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/south-africa.png",
     summary:
       "Helped a Dubai-based tech entrepreneur establish a startup in South Africa, meeting job creation and investment requirements.",
     challenge:
@@ -188,7 +188,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Successful U.S. Intra-Company Transfer (L1 Visa)",
     category: "L1 Visa",
     location: "Houston, USA",
-    heroImage: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/intra.png",
     summary:
       "Set up a U.S. subsidiary in Texas and transferred key staff for a Nigerian oil and gas company director.",
     challenge:
@@ -207,7 +207,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Family Office Structuring in Lagos, Nigeria",
     category: "Family Office Structuring",
     location: "Lagos, Nigeria",
-    heroImage: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/collated/lagos.png",
     summary:
       "Implemented a comprehensive governance framework for a first-generation family office to preserve multi-generational wealth.",
     challenge:

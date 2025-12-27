@@ -10,7 +10,7 @@ import Image from "next/image"
 const slides = [
   {
     id: 1,
-    image: "/global.jpg",
+    image: "/collated/home1.png",
     title: "Your Global Future, Secured",
     subtitle:
       "Prosolutions Global Advisory is a premier, independent provider of specialised services for international corporations, private investors, and globally mobile individuals.",
@@ -19,7 +19,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "/pex.jpg",
+    image: "/collated/home2.png",
     title: "Strategic Corporate Solutions",
     subtitle:
       "Comprehensive company formation, management, and advisory services tailored to your international business needs.",
@@ -28,7 +28,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "/couples.jpg",
+    image: "/collated/home3.png",
     title: "Citizenship & Mobility",
     subtitle:
       "Unlock global mobility and secure your family's future with our expert guidance on premier citizenship and residency programs.",
@@ -37,7 +37,7 @@ const slides = [
   },
   {
     id: 4,
-    image: "/dubai.jpg",
+    image: "/collated/home4.png",
     title: "Real Estate Investment Advisory",
     subtitle:
       "Secure prime assets across emerging African and global cities with our on-the-ground research and transaction support.",
@@ -48,6 +48,7 @@ const slides = [
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [firstImageLoaded, setFirstImageLoaded] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -60,38 +61,42 @@ export function HeroSection() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-900">
+    <section
+      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-900"
+      style={{
+        backgroundImage: `url(${slides[0].image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "right center",
+      }}
+    >
       {/* Background Carousel */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0 z-0"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/30 z-10" />
-          <div className="relative h-full w-full">
+      <div className="absolute inset-0 z-0">
+        {slides.map((slide, index) => (
+          <div key={slide.id} className="absolute inset-0">
             <Image
-              src={slides[currentSlide].image || "/placeholder.svg"}
-              alt={slides[currentSlide].title}
+              src={slide.image || "/placeholder.svg"}
+              alt={slide.title}
               fill
-              priority={currentSlide === 0}
-              className="object-cover object-right"
+              priority={index === 0}
+              loading={index === 0 ? "eager" : "lazy"}
+              onLoadingComplete={() => {
+                if (index === 0) setFirstImageLoaded(true)
+              }}
+              className={`object-cover object-right transition-opacity duration-700 ${currentSlide === index ? "opacity-100" : "opacity-0"}`}
               sizes="100vw"
             />
           </div>
-        </motion.div>
-      </AnimatePresence>
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/30 z-10 pointer-events-none" />
+      </div>
 
       <div className="container relative z-20 px-4 md:px-6">
         <div className="max-w-4xl space-y-8">
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              key={`${currentSlide}-${firstImageLoaded ? "loaded" : "loading"}`}
+              initial={false}
+              animate={{ opacity: firstImageLoaded ? 1 : 0, y: firstImageLoaded ? 0 : 10 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >

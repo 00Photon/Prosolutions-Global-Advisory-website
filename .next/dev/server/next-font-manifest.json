@@ -3,15 +3,6 @@
     "[project]/app/about/page": [
       "static/media/f7aa21714c1c53f8-s.p.e3544bb0.woff2"
     ],
-    "[project]/app/contact/page": [
-      "static/media/f7aa21714c1c53f8-s.p.e3544bb0.woff2"
-    ],
-    "[project]/app/insights/[slug]/page": [
-      "static/media/f7aa21714c1c53f8-s.p.e3544bb0.woff2"
-    ],
-    "[project]/app/insights/page": [
-      "static/media/f7aa21714c1c53f8-s.p.e3544bb0.woff2"
-    ],
     "[project]/app/page": [
       "static/media/f7aa21714c1c53f8-s.p.e3544bb0.woff2"
     ]

@@ -28,7 +28,7 @@ export default function CaseStudiesPage() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-shadow h-full">
+                <Card className="overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-shadow h-full p-0 gap-0">
                   <div className="relative h-56">
                     <Image
                       src={study.heroImage || "/placeholder.svg"}
@@ -38,7 +38,7 @@ export default function CaseStudiesPage() {
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
-                  <CardHeader>
+                  <CardHeader className="pt-6">
                     <p className="text-sm text-muted-foreground">{study.location}</p>
                     <CardTitle className="text-2xl text-primary">{study.title}</CardTitle>
                   </CardHeader>

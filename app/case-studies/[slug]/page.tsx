@@ -25,12 +25,19 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <section className="relative h-[360px] overflow-hidden">
+      <section
+        className="relative h-[360px] overflow-hidden bg-slate-900"
+        style={{
+          backgroundImage: study.heroImage ? `url(${study.heroImage})` : undefined,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <Image
           src={study.heroImage || "/placeholder.svg"}
           alt={study.title}
           fill
-          className="object-cover"
+          className="object-cover object-center"
           sizes="100vw"
           priority
         />

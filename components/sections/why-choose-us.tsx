@@ -52,7 +52,7 @@ export function WhyChooseUsSection() {
             </p>
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/business-meeting-handshake-corporate-office.jpg"
+                src="/collated/4.png"
                 alt="Professional Consultation"
                 fill
                 className="object-cover"

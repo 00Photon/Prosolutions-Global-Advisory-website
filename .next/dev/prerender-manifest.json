@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/insights/svg-cbi-revival-proposal":{},"/insights/citizenship-by-investment-grenada":{},"/insights/european-residency-greece-golden-visa":{},"/insights/uae-corporate-tax-update":{},"/insights/global-mobility-trends-2025":{},"/insights/prime-real-estate-markets":{}},"dynamicRoutes":{"/insights/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/insights/[slug]","routeRegex":"^\\/insights\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"108167102ac38b10e99fbf10be7b67ac","previewModeSigningKey":"73f562ee19a5b29ac28ca21b04eb7c9f327dade1df45e862e3dec5bade269f41","previewModeEncryptionKey":"f979a030f8623a46c8b21599ad5a8fa7eaaaa7cdaef0df1be3678924e57a16c9"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "124ee41457286251114fa20ae97a4ada",
+    "previewModeSigningKey": "f3c9be4e736e8fc21a50c4cf26f5bdea2927cadaa132c2eb33fb717059ee4717",
+    "previewModeEncryptionKey": "33344b3f09519d7ca5ba54227549f24a558c4bc4fcabae75e2604ddf4fa8184d"
+  }
+}
